@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="93e96026-c31d-47dc-ae58-e8f62ae7afc5">
+  <producedTypes>
+    <selectionType typeId="7f6a7486-3ff5-4f76-ad1c-364895fd578e" valueTypeId="67a1df1f-b5be-4a3f-a30b-858f2cf6a06e"/>
+    <listType typeId="d2aaaa42-ed04-4c01-aaf3-723f4013f5f1" valueTypeId="19514fbd-d79f-40a6-b974-f6387a5fb317"/>
+    <managerType typeId="4258a39e-c81d-40e2-a866-9f329f5a2b48" valueTypeId="6f3db38e-348e-43ea-8089-150536787718"/>
+    <recordSetType typeId="3d944a84-6864-4c88-a187-73530e1098d5" valueTypeId="780d4a24-ebdc-4a39-b4fa-4fd2aaf711bf"/>
+    <recordKeyType typeId="648c5607-b0bc-4a42-8e18-9b75f49c8c05" valueTypeId="f08029db-450b-49e6-b724-f7d01db64124"/>
+    <recordType typeId="09f628f5-6189-4b06-9deb-9fdf8786eb44" valueTypeId="4f7055bb-a916-40fe-a7a7-a21171f16930"/>
+    <recordManagerType typeId="3c68de8f-7bb0-419f-8efb-a43b724eaf96" valueTypeId="d0250831-a63b-4c66-8fca-13690ff65456"/>
+  </producedTypes>
+  <name>дкл_СкладскиеЯчейки</name>
+  <synonym>
+    <key>ru</key>
+    <value>Складские ячейки</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <editType>InDialog</editType>
+  <defaultRecordForm>InformationRegister.дкл_СкладскиеЯчейки.Form.ФормаЗаписи</defaultRecordForm>
+  <defaultListForm>InformationRegister.дкл_СкладскиеЯчейки.Form.ФормаСписка</defaultListForm>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="97bd22b7-f666-46d1-b491-6be299adc8ed">
+    <name>storageId</name>
+    <synonym>
+      <key>ru</key>
+      <value>ID места хранения</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>50</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+    <indexing>Index</indexing>
+  </resources>
+  <resources uuid="9ac05fc2-ecc4-4a48-82ca-f63bceb34753">
+    <name>trayNumber</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номер полки</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>2</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="c58f4742-a522-42f5-b408-00291c7267c8">
+    <name>itemId</name>
+    <synonym>
+      <key>ru</key>
+      <value>ID прикрепленной номенклатуры</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>50</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+  </resources>
+  <resources uuid="ba0e3d0f-dd4b-43eb-a964-9c1d6b1bd12f">
+    <name>poseX</name>
+    <synonym>
+      <key>ru</key>
+      <value>Точка нахождения по оси X</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>4</length>
+      </stringQualifiers>
+    </type>
+    <mask>9999</mask>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="1146d665-fedb-4c1d-9e02-a515176f7d39">
+    <name>poseY</name>
+    <synonym>
+      <key>ru</key>
+      <value>Точка нахождения по оси Y</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>4</length>
+      </stringQualifiers>
+    </type>
+    <mask>9999</mask>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="cd6473c1-4fda-48c5-805a-d6fa96813850">
+    <name>width</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ширина</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>4</length>
+      </stringQualifiers>
+    </type>
+    <mask>9999</mask>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="e643e464-8bed-43f2-9fe8-6db83be9a6a3">
+    <name>depth</name>
+    <synonym>
+      <key>ru</key>
+      <value>Глубина</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>4</length>
+      </stringQualifiers>
+    </type>
+    <mask>9999</mask>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="a3325813-8f6e-49cd-bc76-ee2855912779">
+    <name>barcode</name>
+    <synonym>
+      <key>ru</key>
+      <value>Штрихкод</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>50</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+  </resources>
+  <attributes uuid="54c56f38-bd76-4e96-846b-5f811b71d4c9">
+    <name>Статус</name>
+    <synonym>
+      <key>ru</key>
+      <value>Статус</value>
+    </synonym>
+    <type>
+      <types>EnumRef.дкл_Статусы</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="04c555d6-6966-4a7c-b335-014389496eb2">
+    <name>ДатаСтатуса</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers/>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Дата установки статуса</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="6237e7fc-3bbf-4347-abdf-05becc98a375">
+    <name>ПараметрыЗаполнены</name>
+    <synonym>
+      <key>ru</key>
+      <value>Параметры заполнены</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <dimensions uuid="b6b843e4-eaac-420f-91f5-44ab4840c6f4">
+    <name>НастройкаСклада</name>
+    <synonym>
+      <key>ru</key>
+      <value>Настройка склада-лифта</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.дкл_НастройкиСкладовЛифтов</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="95c14d40-2fa8-4092-9b63-3e23f731c128">
+    <name>СкладскаяЯчейка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Складская ячейка</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.СкладскиеЯчейки</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <forms uuid="1f857711-3874-4213-85fc-d30240a101c8">
+    <name>ФормаЗаписи</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма записи</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="383ab655-8da9-456c-b841-8aae29ae1556">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:InformationRegister>

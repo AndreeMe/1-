@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:XDTOPackage xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="d5c9f36e-7332-420b-9678-06daa4b43e6a">
+  <name>DikomLift</name>
+  <synonym>
+    <key>ru</key>
+    <value>Dikom lift</value>
+  </synonym>
+  <namespace>http://www.dikom.ru/erp/lift/</namespace>
+</mdclass:XDTOPackage>

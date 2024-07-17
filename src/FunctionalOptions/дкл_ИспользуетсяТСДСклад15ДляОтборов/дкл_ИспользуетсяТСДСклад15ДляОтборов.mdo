@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:FunctionalOption xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="3b016932-2126-4d9c-bea4-f7be26e36ec9">
+  <name>дкл_ИспользуетсяТСДСклад15ДляОтборов</name>
+  <synonym>
+    <key>ru</key>
+    <value>Используется ТСД &quot;Склад15&quot; для отборов</value>
+  </synonym>
+  <location>Constant.дкл_ИспользуетсяТСДСклад15ДляОтборов</location>
+  <privilegedGetMode>true</privilegedGetMode>
+  <content>InformationRegister.дкл_СтатусыДокументов</content>
+  <content>Enum.дкл_СтатусыДокументов</content>
+</mdclass:FunctionalOption>

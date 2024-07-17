@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="3ceb3ed7-5fbb-4bd6-a775-a140ff46835d">
+  <producedTypes>
+    <selectionType typeId="573aaf27-4528-4222-8a96-90a0705abfa6" valueTypeId="a95b615d-82c1-4f0c-99bf-d93fb095fe88"/>
+    <listType typeId="206c58a2-c012-4ae7-a482-b2b02bf629de" valueTypeId="0a735f75-2729-496b-8b99-4d4aed87d448"/>
+    <managerType typeId="0c0308c7-8fd0-4de2-ab90-81404e5caead" valueTypeId="1fcaf3c9-f932-40a7-be80-43b3b0a14716"/>
+    <recordSetType typeId="7247b7ae-60f8-43b9-839a-6a28cff3b15c" valueTypeId="3a607ba2-26d7-459b-b828-1081d0324207"/>
+    <recordKeyType typeId="eff42bf6-6e70-492d-ab0b-eeb7baba5280" valueTypeId="a64e0318-2d45-4b78-aa2a-acca6c76e752"/>
+    <recordType typeId="32d13bbf-5a06-422b-8d51-c5cd24bed661" valueTypeId="08470b09-44f4-471e-ae0a-70a3d4f881f4"/>
+    <recordManagerType typeId="2dd6b689-6a22-4c66-84bb-0727a7cd6140" valueTypeId="2c41017c-1556-42d3-9855-209977b96245"/>
+  </producedTypes>
+  <name>дкл_СостояниеПолки</name>
+  <synonym>
+    <key>ru</key>
+    <value>Состояние полки</value>
+  </synonym>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="fbf0ca44-131b-4ec3-b253-91cf608a1f8f">
+    <name>Состояние</name>
+    <synonym>
+      <key>ru</key>
+      <value>Состояние</value>
+    </synonym>
+    <type>
+      <types>EnumRef.дкл_СостоянияПолок</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="5177e1bd-d303-4fff-b3cd-49ace971f7f0">
+    <name>НомерСтатуса</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номер статуса</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>1</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="9c222482-cba6-417c-b96f-9fcccda8c140">
+    <name>НастройкаСклада</name>
+    <synonym>
+      <key>ru</key>
+      <value>Настройка склада</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.дкл_НастройкиСкладовЛифтов</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="3a1ead05-9e93-4aca-be6c-9182a7aeb08f">
+    <name>НомерПолки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номер полки</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>2</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

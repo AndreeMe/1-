@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:FunctionalOption xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="74c8a11b-bcfe-4942-b0d0-4aeaf0cec5d7">
+  <name>дкл_ИспользоватьХарактеристики</name>
+  <synonym>
+    <key>ru</key>
+    <value>Использовать характеристики</value>
+  </synonym>
+  <location>Catalog.дкл_НастройкиСкладовЛифтов.Attribute.ИспользоватьХарактеристики</location>
+  <privilegedGetMode>true</privilegedGetMode>
+  <content>InformationRegister.дкл_НоменклатураСкладов.Dimension.Характеристика</content>
+</mdclass:FunctionalOption>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head><meta http-equiv="content-type" content="text/html;charset=utf-8"></meta><link rel="stylesheet" type="text/css" href="v8help://service_book/service_style"></link></head><body>В модуле подключаемой обработки должна быть экспортная функция (пусть она всегда называется "ВыполнитьПриложение", хотя это не обязательно), возвращающая "Результат" (структуру, или значение простого типа, зависит от дальнейшей необходимой обработки).
+<div><br></div>
+<div>
+<div>Функция ВыполнитьПриложение(РаспоряжениеНаПровес, ТипПодключаемойОбработки) Экспорт</div></div><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">
+<div>
+<div>...</div></div></blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">
+<div>
+<div>...</div></div></blockquote><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">
+<div>
+<div>Возврат Результат</div></div></blockquote>
+<div>
+<div>КонецФункции</div></div>
+<div><br></div>
+<div><b>Пример вызова:</b></div>
+<div><br></div>
+<div>
+<div>НаименованиеПодключаемойОбработки = "Выгрузка распоряжения на провес в АСКАТ";</div>
+<div><br></div>
+<div>ТипСообщения = Справочники.wsТипыСообщений.НайтиПоНаименованию(НаименованиеПодключаемойОбработки);</div>
+<div><br></div>
+<div>Если Не ЗначениеЗаполнено(ТипСообщения) Тогда</div>
+<div><span class="Apple-tab-span" style="white-space:pre">	</span>Сообщение = Новый СообщениеПользователю;</div>
+<div><span class="Apple-tab-span" style="white-space:pre">	</span>Сообщение.Текст = "Не найден тип сообщения для подключаемой обработки " + НаименованиеПодключаемойОбработки;</div>
+<div><span class="Apple-tab-span" style="white-space:pre">	</span>Сообщение.Сообщить(); </div>
+<div><span class="Apple-tab-span" style="white-space:pre">	</span>Возврат;</div>
+<div>КонецЕсли;</div>
+<div><span class="Apple-tab-span" style="white-space:pre">	</span></div>
+<div>Приложение = wsОбработчики.ПодключитьОбработку(ТипСообщения, Перечисления.wsНаправлениеСообщения.Исходящее);</div>
+<div><span class="Apple-tab-span" style="white-space:pre">							</span></div>
+<div>Если Приложение = Неопределено Тогда</div>
+<div><span class="Apple-tab-span" style="white-space:pre">	</span>Сообщение = Новый СообщениеПользователю;</div>
+<div><span class="Apple-tab-span" style="white-space:pre">	</span>Сообщение.Текст = "Не найден обработчик " + НаименованиеПодключаемойОбработки;</div>
+<div><span class="Apple-tab-span" style="white-space:pre">	</span>Сообщение.Сообщить(); </div>
+<div><span class="Apple-tab-span" style="white-space:pre">	</span>Возврат;</div>
+<div>Иначе</div>
+<div><span class="Apple-tab-span" style="white-space:pre">	</span>Попытка</div>
+<div><span class="Apple-tab-span" style="white-space:pre">		</span>Результат = Приложение.ВыполнитьПриложение(Ссылка, НаименованиеПодключаемойОбработки);<span class="Apple-tab-span" style="white-space:pre">	</span></div>
+<div><span class="Apple-tab-span" style="white-space:pre">	</span>Исключение</div>
+<div><span class="Apple-tab-span" style="white-space:pre">		</span>СообщениеОбОшибке = ОписаниеОшибки();<span class="Apple-tab-span" style="white-space:pre">		</span></div>
+<div><span class="Apple-tab-span" style="white-space:pre">	</span>КонецПопытки;</div>
+<div>КонецЕсли; </div>
+<div><span class="Apple-tab-span" style="white-space:pre">	</span></div></div>
+<div><br></div>
+<div><br></div></body></html>

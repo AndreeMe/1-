@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DefinedType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" xmlns:mdclassExtension="http://g5.1c.ru/v8/dt/metadata/mdclass/extension" uuid="00ff0fbc-7091-438c-bb0d-5190fb9284fc" extendedConfigurationObject="46b0a5b3-1fa7-44ff-a941-c6de47d36e77">
+  <producedTypes>
+    <containerType typeId="1f2d4a17-d4e7-420a-89fc-2f77b4cbc72c" valueTypeId="b40781c7-d465-48ed-b06a-85751f348058"/>
+  </producedTypes>
+  <name>ФизическоеЛицо</name>
+  <objectBelonging>Adopted</objectBelonging>
+  <extension xsi:type="mdclassExtension:DefinedTypeExtension">
+    <extendedConfigurationObject>Checked</extendedConfigurationObject>
+    <typeExtension/>
+  </extension>
+  <type/>
+</mdclass:DefinedType>

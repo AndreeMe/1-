@@ -1,0 +1,1771 @@
+<xsd:schema xmlns:tns="http://www.dikom.ru/lift/integration/services/"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		attributeFormDefault="unqualified"
+		targetNamespace="http://www.dikom.ru/lift/integration/services/">
+	<!-- GENERAL -->
+	<xsd:simpleType name="ledalphabet">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([a-zA-ZЁёа-яА-Я 0-9_=!@#№,\.\-\?%\*\(\)\+&amp;&gt;&lt;&quot;'°\\/|])*"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- 
+         Unicode specials
+         &#8304; &#185; &#178; &#179; &#8308 - &#8313; - superscript numbers (0-9)
+         &#188 - &#190; &#8528 - &#8542; - fraction signs (¼-¾; ⅐-⅞)
+     -->
+	<xsd:simpleType name="alphanumeric50">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([a-zA-ZЁёа-яА-Я 0-9\-])*"/>
+			<xsd:maxLength value="50"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="alphanumeric20">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([a-zA-ZЁёа-яА-Я0-9\-])*"/>
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- Simple patterns for basic date/time string format. 
+            Do not validate that string actually represents a date. -->
+	<xsd:simpleType name="alphanumericspecials50">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([a-zA-ZЁёа-яА-Я 0-9_=!@#№$®™`’″«»“”√⌀øØ\^≤≥—±÷≠×·‑ΔδöȽɰɛ,;:~\.–\-\?%\*\(\)\[\]\{\}\+&amp;&gt;&lt;&quot;'°˚\\/|⁰¹²³⁴-⁹¼-¾⅐-⅞])*"/>
+			<xsd:maxLength value="50"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- User Service -->
+	<xsd:simpleType name="alphanumericspecials100">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([a-zA-ZЁёа-яА-Я 0-9_=!@#№$®™`’″«»“”√⌀øØ\^≤≥—±÷≠×·‑ΔδöȽɰɛ,;:~\.–\-\?%\*\(\)\[\]\{\}\+&amp;&gt;&lt;&quot;'°˚\\/|⁰¹²³⁴-⁹¼-¾⅐-⅞])*"/>
+			<xsd:maxLength value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="alphanumericspecials150">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([a-zA-ZЁёа-яА-Я 0-9_=!@#№$®™`’″«»“”√⌀øØ\^≤≥—±÷≠×·‑ΔδöȽɰɛ,;:~\.–\-\?%\*\(\)\[\]\{\}\+&amp;&gt;&lt;&quot;'°˚\\/|⁰¹²³⁴-⁹¼-¾⅐-⅞])*"/>
+			<xsd:maxLength value="150"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="latinalphanumericspecials50">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([a-zA-Z 0-9_=!@#№$®™`’″«»“”√⌀øØ\^≤≥—±÷≠×·‑ΔδöȽɰɛ,;:~\.–\-\?%\*\(\)\[\]\{\}\+&amp;&gt;&lt;&quot;'°˚\\/|⁰¹²³⁴-⁹¼-¾⅐-⅞])*"/>
+			<xsd:maxLength value="50"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="login">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([a-zA-ZЁёа-яА-Я0-9\-\._])*"/>
+			<xsd:maxLength value="50"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="date">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[\d]{2}.[\d]{2}.[\d]{4}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!--Storage Service-->
+	<xsd:simpleType name="time">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[\d]{2}:[\d]{2}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="roleType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ADMIN"/>
+			<xsd:enumeration value="OPERATOR"/>
+			<xsd:enumeration value="ENGINEER"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="rfid">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="UploadUserList">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded"
+					minOccurs="0">
+				<xsd:element name="user"
+						type="tns:UploadUser"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Item service -->
+	<xsd:complexType name="UploadUser">
+		<xsd:sequence>
+			<xsd:element name="userId"
+					type="tns:alphanumeric50"/>
+			<xsd:element name="firstName"
+					type="tns:alphanumeric50"/>
+			<xsd:element name="lastName"
+					type="tns:alphanumeric50"/>
+			<xsd:element minOccurs="0"
+					name="middleName"
+					nillable="true"
+					type="tns:alphanumeric50"/>
+			<xsd:element minOccurs="0"
+					name="position"
+					nillable="true"
+					type="tns:alphanumericspecials50"/>
+			<xsd:element name="login"
+					type="tns:login"/>
+			<xsd:element minOccurs="0"
+					name="password"
+					nillable="true"
+					type="xsd:string"/>
+			<xsd:element minOccurs="0"
+					name="role"
+					nillable="true"
+					type="tns:roleType"/>
+			<xsd:element minOccurs="0"
+					name="rfid"
+					nillable="true"
+					type="tns:rfid"/>
+			<xsd:element name="active"
+					type="xsd:boolean"/>
+			<xsd:element minOccurs="0"
+					name="remoteLogin"
+					nillable="true"
+					type="tns:login"/>
+			<xsd:element minOccurs="0"
+					name="remotePassword"
+					nillable="true"
+					type="xsd:string"/>
+			<xsd:element minOccurs="0"
+					name="remoteAddress"
+					nillable="true"
+					type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="GetUserList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:choice>
+					<xsd:sequence>
+						<xsd:element maxOccurs="1"
+								minOccurs="0"
+								name="userId"
+								nillable="true"
+								type="tns:alphanumeric50"/>
+					</xsd:sequence>
+					<xsd:sequence>
+						<xsd:element maxOccurs="1"
+								minOccurs="0"
+								name="login"
+								nillable="true"
+								type="tns:login"/>
+					</xsd:sequence>
+				</xsd:choice>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetUserLogList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:sequence>
+					<xsd:element maxOccurs="1"
+							minOccurs="0"
+							name="userId"
+							nillable="true"
+							type="tns:alphanumeric50"/>
+				</xsd:sequence>
+				<xsd:sequence>
+					<xsd:element maxOccurs="1"
+							minOccurs="0"
+							name="login"
+							nillable="true"
+							type="tns:login"/>
+				</xsd:sequence>
+				<xsd:sequence>
+					<xsd:element maxOccurs="1"
+							minOccurs="0"
+							name="startDate"
+							nillable="true"
+							type="xsd:date"/>
+				</xsd:sequence>
+				<xsd:sequence>
+					<xsd:element maxOccurs="1"
+							minOccurs="0"
+							name="endDate"
+							nillable="true"
+							type="xsd:date"/>
+				</xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetUserListResult">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded"
+					minOccurs="0">
+				<xsd:element name="user"
+						type="tns:GetUserResult"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetUserLogListResult">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded"
+					minOccurs="0">
+				<xsd:element name="userLogRecord"
+						type="tns:UserLogRecord"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="GetUserResult">
+		<xsd:sequence>
+			<xsd:element minOccurs="0"
+					name="userId"
+					nillable="true"
+					type="tns:alphanumeric50"/>
+			<xsd:element name="firstName"
+					type="tns:alphanumeric50"/>
+			<xsd:element name="lastName"
+					type="tns:alphanumeric50"/>
+			<xsd:element minOccurs="0"
+					name="middleName"
+					nillable="true"
+					type="tns:alphanumeric50"/>
+			<xsd:element minOccurs="0"
+					name="position"
+					nillable="true"
+					type="tns:alphanumericspecials50"/>
+			<xsd:element name="login"
+					type="tns:login"/>
+			<xsd:element minOccurs="0"
+					name="password"
+					nillable="true"
+					type="xsd:string"/>
+			<xsd:element minOccurs="0"
+					name="role"
+					nillable="true"
+					type="tns:roleType"/>
+			<xsd:element minOccurs="0"
+					name="rfid"
+					nillable="true"
+					type="tns:rfid"/>
+			<xsd:element name="active"
+					type="xsd:boolean"/>
+			<xsd:element minOccurs="0"
+					name="lastEntrance"
+					nillable="true"
+					type="xsd:dateTime"/>
+			<xsd:element minOccurs="0"
+					name="remoteLogin"
+					nillable="true"
+					type="tns:login"/>
+			<xsd:element minOccurs="0"
+					name="remotePassword"
+					nillable="true"
+					type="xsd:string"/>
+			<xsd:element minOccurs="0"
+					name="remoteAddress"
+					nillable="true"
+					type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UserLogRecord">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="eventDate"
+					nillable="true"
+					type="xsd:date"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="event"
+					nillable="false"
+					type="tns:alphanumeric50"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="name"
+					nillable="false"
+					type="tns:alphanumeric50"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="role"
+					nillable="true"
+					type="tns:roleType"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="login"
+					nillable="false"
+					type="tns:login"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="userId"
+					nillable="false"
+					type="tns:alphanumeric50"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- Order Service -->
+	<xsd:element name="UploadStorage">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="storageId"
+						type="xsd:string"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="itemId"
+						nillable="true"
+						type="xsd:string"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="trayNumber"
+						type="xsd:int"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="poseX"
+						nillable="true"
+						type="xsd:double"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="poseY"
+						nillable="true"
+						type="xsd:double"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="width"
+						nillable="true"
+						type="xsd:double"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="depth"
+						nillable="true"
+						type="xsd:double"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="barcode"
+						nillable="true"
+						type="tns:barcode"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="UploadStorageResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="message"
+						type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetStorageList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="trayNumber"
+						type="xsd:int"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="DeleteStorage">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="storageId"
+						type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetStorageListResult">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="message"
+						type="xsd:string"/>
+				<xsd:element maxOccurs="unbounded"
+						minOccurs="0"
+						name="storage"
+						type="tns:GetStorageResult"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="DeleteStorageResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="message"
+						type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="Storage">
+		<xsd:sequence>
+			<!--from TRAYS-->
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="storageId"
+					type="xsd:string"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="trayNumber"
+					type="xsd:int"/>
+			<!--from ITEMS-->
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="poseX"
+					type="xsd:double"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="poseY"
+					type="xsd:double"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="depth"
+					type="xsd:double"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="width"
+					type="xsd:double"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="itemId"
+					type="xsd:string"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="quant"
+					type="xsd:double"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="barcode"
+					type="tns:barcode"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="GetStorageResult">
+		<xsd:sequence>
+			<xsd:element minOccurs="0"
+					name="storageId"
+					nillable="true"
+					type="xsd:string"/>
+			<xsd:element name="trayNumber"
+					type="xsd:int"/>
+			<xsd:element name="poseX"
+					type="xsd:double"/>
+			<xsd:element name="poseY"
+					type="xsd:double"/>
+			<xsd:element name="depth"
+					type="xsd:double"/>
+			<xsd:element name="width"
+					type="xsd:double"/>
+			<xsd:element minOccurs="0"
+					name="itemId"
+					nillable="true"
+					type="xsd:string"/>
+			<xsd:element name="quant"
+					type="xsd:double"/>
+			<xsd:element minOccurs="0"
+					name="barcode"
+					nillable="true"
+					type="tns:barcode"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="uomType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="EACH"/>
+			<xsd:enumeration value="SET"/>
+			<xsd:enumeration value="PACK"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- Led Line Service -->
+	<xsd:simpleType name="barcode">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- Led Display Service -->
+	<xsd:element name="UploadItemList">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded"
+					minOccurs="0">
+				<xsd:element name="item"
+						type="tns:Item"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="Item">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="itemId"
+					nillable="false"
+					type="tns:alphanumericspecials50"/>
+			<!-- Код 1С -->
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="itemName"
+					nillable="false"
+					type="tns:alphanumericspecials150"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="unit"
+					nillable="false"
+					type="tns:uomType"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="active"
+					nillable="false"
+					type="xsd:boolean"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="isDecimal"
+					nillable="false"
+					type="xsd:boolean"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="extraCode"
+					nillable="false"
+					type="tns:alphanumeric20"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="vendorNumber"
+					nillable="false"
+					type="tns:alphanumericspecials100"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="width"
+					nillable="true"
+					type="xsd:int"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="height"
+					nillable="true"
+					type="xsd:int"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="depth"
+					nillable="true"
+					type="xsd:int"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="weight"
+					nillable="true"
+					type="xsd:int"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="barcode"
+					nillable="true"
+					type="tns:barcode"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="weightCheck"
+					nillable="false"
+					type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- Tray Service -->
+	<xsd:element name="UploadStocksList">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded"
+					minOccurs="0">
+				<xsd:element name="stock"
+						type="tns:Stock"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="Stock">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="itemId"
+					nillable="false"
+					type="tns:alphanumericspecials50"/>
+			<xsd:element maxOccurs="unbounded"
+					minOccurs="1"
+					name="trayQty"
+					nillable="false"
+					type="tns:TrayQuantity"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TrayQuantity">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="trayNumber"
+					nillable="false"
+					type="xsd:int"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="quantity"
+					type="xsd:decimal"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="storageId"
+					type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="UploadResult">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="message"
+						type="xsd:string"/>
+				<xsd:element name="errorCode"
+						nillable="true"
+						type="xsd:string"/>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetItemList">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ItemListResult">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded"
+					minOccurs="0">
+				<xsd:element name="item"
+						type="tns:GetItemResult"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="GetItemResult">
+		<xsd:sequence>
+			<xsd:element minOccurs="0"
+					name="itemId"
+					nillable="true"
+					type="tns:alphanumericspecials50"/>
+			<!-- Код 1С -->
+			<xsd:element name="itemName"
+					type="tns:alphanumericspecials150"/>
+			<xsd:element name="unit"
+					type="tns:uomType"/>
+			<xsd:element name="active"
+					type="xsd:boolean"/>
+			<xsd:element name="isDecimal"
+					type="xsd:boolean"/>
+			<xsd:element minOccurs="0"
+					name="extraCode"
+					nillable="true"
+					type="tns:alphanumeric20"/>
+			<xsd:element minOccurs="0"
+					name="vendorNumber"
+					nillable="true"
+					type="tns:alphanumericspecials100"/>
+			<xsd:element minOccurs="0"
+					name="width"
+					type="xsd:int"/>
+			<xsd:element minOccurs="0"
+					name="height"
+					type="xsd:int"/>
+			<xsd:element minOccurs="0"
+					name="depth"
+					type="xsd:int"/>
+			<xsd:element minOccurs="0"
+					name="weight"
+					type="xsd:int"/>
+			<xsd:element minOccurs="0"
+					name="barcode"
+					nillable="true"
+					type="tns:barcode"/>
+			<xsd:element name="weightCheck"
+					type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="balanceType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="TOTAL"/>
+			<xsd:enumeration value="STORAGES"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="GetStockBalances">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="type"
+						nillable="false"
+						type="tns:balanceType"/>
+				<xsd:choice>
+					<xsd:sequence>
+						<xsd:element maxOccurs="1"
+								minOccurs="0"
+								name="trayNumberFrom"
+								type="xsd:int"/>
+						<xsd:element maxOccurs="1"
+								minOccurs="0"
+								name="trayNumberTo"
+								type="xsd:int"/>
+					</xsd:sequence>
+					<xsd:sequence>
+						<xsd:element maxOccurs="unbounded"
+								minOccurs="1"
+								name="trayNumber"
+								type="xsd:int"/>
+					</xsd:sequence>
+				</xsd:choice>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="itemId"
+						nillable="false"
+						type="tns:alphanumericspecials50"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- System Service -->
+	<xsd:element name="StockBalances">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="message"
+						type="xsd:string"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="errorCode"
+						type="xsd:string"/>
+				<xsd:element maxOccurs="unbounded"
+						minOccurs="0"
+						name="itemBalance"
+						type="tns:ItemBalance"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="ItemBalance">
+		<xsd:all>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="storageId"
+					type="tns:alphanumericspecials50"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="itemId"
+					nillable="false"
+					type="tns:alphanumericspecials50"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="storage"
+					nillable="false"
+					type="xsd:string"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="availableQuantity"
+					nillable="false"
+					type="xsd:decimal"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="totalQuantity"
+					nillable="false"
+					type="xsd:decimal"/>
+		</xsd:all>
+	</xsd:complexType>
+	<!--Date elements-->
+	<xsd:element name="RetrievalOrdersList">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded"
+					minOccurs="0">
+				<xsd:element name="order"
+						type="tns:RetrievalOrder"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!--BackUp elements-->
+	<xsd:complexType name="RetrievalOrder">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="docNumber"
+					nillable="false"
+					type="tns:alphanumericspecials100"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="userId"
+					nillable="false"
+					type="tns:alphanumeric50"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="docDate"
+					nillable="false"
+					type="xsd:date"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="execDate"
+					nillable="false"
+					type="xsd:date"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="area"
+					nillable="false"
+					type="tns:alphanumericspecials100"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="active"
+					nillable="false"
+					type="xsd:boolean"/>
+			<xsd:element maxOccurs="unbounded"
+					minOccurs="0"
+					name="rows"
+					nillable="false"
+					type="tns:RetrievalOrderRow"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RetrievalOrderRow">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="itemId"
+					nillable="false"
+					type="tns:alphanumericspecials50"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="quantity"
+					type="xsd:int"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- DVS status elements -->
+	<xsd:element name="StorageOrdersList">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded"
+					minOccurs="0">
+				<xsd:element name="order"
+						type="tns:StorageOrder"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="StorageOrder">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="docNumber"
+					nillable="false"
+					type="tns:alphanumericspecials100"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="userId"
+					nillable="false"
+					type="tns:alphanumeric50"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="docDate"
+					nillable="false"
+					type="xsd:date"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="execDate"
+					nillable="false"
+					type="xsd:date"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="area"
+					nillable="false"
+					type="tns:alphanumericspecials100"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="active"
+					nillable="false"
+					type="xsd:boolean"/>
+			<xsd:element maxOccurs="unbounded"
+					minOccurs="0"
+					name="rows"
+					nillable="false"
+					type="tns:StorageOrderRow"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="StorageOrderRow">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="itemId"
+					nillable="false"
+					type="tns:alphanumericspecials50"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="quantity"
+					type="xsd:int"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SubmitResult">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="message"
+						type="xsd:string"/>
+				<xsd:element name="errorCode"
+						nillable="true"
+						type="xsd:string"/>
+				<xsd:element maxOccurs="unbounded"
+						minOccurs="0"
+						name="orders"
+						nillable="false"
+						type="tns:SubmitResultOrder"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="SubmitResultOrder">
+		<xsd:sequence>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="docNumber"
+						nillable="false"
+						type="tns:alphanumericspecials100"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="errorCode"
+						nillable="true"
+						type="xsd:string"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="message"
+						type="xsd:string"/>
+				<xsd:element maxOccurs="unbounded"
+						minOccurs="0"
+						name="rows"
+						nillable="false"
+						type="tns:SubmitResultOrderRow"/>
+			</xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubmitResultOrderRow">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="itemId"
+					nillable="false"
+					type="tns:alphanumericspecials50"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="errorCode"
+					nillable="true"
+					type="xsd:string"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="message"
+					type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="orderType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="RETRIEVE"/>
+			<xsd:enumeration value="STORE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="changeStatus">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="READY"/>
+			<xsd:enumeration value="PRELOADING"/>
+			<xsd:enumeration value="DELETED"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="OrderStatusChange">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="type"
+						nillable="false"
+						type="tns:orderType"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="docNumber"
+						nillable="false"
+						type="tns:alphanumericspecials100"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="status"
+						nillable="false"
+						type="tns:changeStatus"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="OrderStatusChangeResult">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="docNumber"
+						nillable="false"
+						type="tns:alphanumericspecials100"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="changed"
+						nillable="false"
+						type="xsd:boolean"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="errorCode"
+						nillable="true"
+						type="xsd:string"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="message"
+						type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Show storage service -->
+	<xsd:element name="GetOrderStatus">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="type"
+						nillable="false"
+						type="tns:orderType"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="docNumber"
+						nillable="false"
+						type="tns:alphanumericspecials100"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:simpleType name="orderStatus">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="PRELOADING"/>
+			<xsd:enumeration value="READY_TO_LOAD"/>
+			<xsd:enumeration value="LOADING"/>
+			<xsd:enumeration value="READY_TO_UNLOAD"/>
+			<xsd:enumeration value="UNLOADING"/>
+			<xsd:enumeration value="PAUSE"/>
+			<xsd:enumeration value="COMPLETED"/>
+			<xsd:enumeration value="UNKNOWN"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="GetOrderStatusResult">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="docNumber"
+						nillable="false"
+						type="tns:alphanumericspecials100"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="status"
+						type="tns:orderStatus"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="errorCode"
+						nillable="true"
+						type="xsd:string"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="message"
+						type="xsd:string"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="docDate"
+						nillable="false"
+						type="xsd:date"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="rows"
+						nillable="false"
+						type="tns:OrderRows"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:simpleType name="rowStatus">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="NOT_STARTED"/>
+			<xsd:enumeration value="PARTLY_DONE"/>
+			<xsd:enumeration value="INSUFFICIENCY"/>
+			<xsd:enumeration value="NO_SPACE"/>
+			<xsd:enumeration value="COMPLETED"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="OrderRows">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded"
+					minOccurs="1"
+					name="row"
+					nillable="false"
+					type="tns:OrderRowStatus"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OrderRowStatus">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="itemId"
+					nillable="false"
+					type="tns:alphanumericspecials50"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="status"
+					type="tns:rowStatus"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="quantityFact"
+					type="xsd:int"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="quantity"
+					type="xsd:int"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SetLedLineRange">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="requestId"
+						nillable="false"
+						type="xsd:string"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="feederId"
+						type="xsd:int"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="from"
+						nillable="false"
+						type="xsd:int"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="to"
+						nillable="false"
+						type="xsd:int"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ClearLedLineRange">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="requestId"
+						nillable="false"
+						type="xsd:string"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="feederId"
+						type="xsd:int"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SetLedDisplayMessage">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="requestId"
+						nillable="false"
+						type="xsd:string"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="feederId"
+						type="xsd:int"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="message"
+						nillable="false"
+						type="tns:ledalphabet"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ClearLedDisplayMessage">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="requestId"
+						nillable="false"
+						type="xsd:string"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="feederId"
+						type="xsd:int"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:simpleType name="platformType">
+		<xsd:restriction base="xsd:int">
+			<!-- Any -->
+			<xsd:enumeration value="0"/>
+			<!-- Bottom (LOWER) -->
+			<xsd:enumeration value="1"/>
+			<!-- Top (UPPER) -->
+			<xsd:enumeration value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="operationsError">
+		<xsd:restriction base="xsd:int">
+			<!-- операция выполнена успешно -->
+			<xsd:enumeration value="0"/>
+			<!-- операция выполняется -->
+			<xsd:enumeration value="1"/>
+			<!-- операция не может быть выполнена из-за технической неполадки лифта -->
+			<xsd:enumeration value="2"/>
+			<!-- операция не может быть выполнена из-за неправильно указанного параметра или отсутствует нужные параметр. (В тексте статуса нужно будет указать, какой параметр/ы не указаны) -->
+			<xsd:enumeration value="3"/>
+			<!-- Указанная полка занята -->
+			<xsd:enumeration value="4"/>
+			<!-- Указанная платформа занята -->
+			<xsd:enumeration value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="GetTray">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="requestId"
+						type="xsd:string"/>
+				<xsd:element name="trayNumber"
+						type="xsd:int"/>
+				<xsd:element name="feederId"
+						type="xsd:int"/>
+				<xsd:element name="platform"
+						type="tns:platformType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetTraySecure">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="userId"
+						type="xsd:string"/>
+				<xsd:element ref="tns:GetTray"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetTrayList">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded"
+					minOccurs="0">
+				<xsd:element maxOccurs="unbounded"
+						minOccurs="0"
+						name="trayNumber"
+						type="xsd:short"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="TrayListResult">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded"
+					minOccurs="0">
+				<xsd:element name="tray"
+						type="tns:Tray"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="Tray">
+		<xsd:sequence>
+			<xsd:element name="trayNumber"
+					type="xsd:short"/>
+			<xsd:element name="title"
+					type="xsd:string"/>
+			<xsd:element name="width"
+					type="xsd:int"/>
+			<xsd:element name="depth"
+					type="xsd:int"/>
+			<xsd:element name="height"
+					type="xsd:int"/>
+			<xsd:element name="weight"
+					type="xsd:float"/>
+			<xsd:element name="barcode"
+					nillable="true"
+					type="xsd:string"/>
+			<xsd:element name="maxHeight"
+					type="xsd:int"/>
+			<xsd:element name="maxWeight"
+					type="xsd:int"/>
+			<xsd:element name="editable"
+					type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ReturnTray">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="requestId"
+						type="xsd:string"/>
+				<xsd:element name="trayNumber"
+						type="xsd:int"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ReturnTraySecure">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="userId"
+						type="xsd:string"/>
+				<xsd:element ref="tns:ReturnTray"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="UpdateTrayInfoList">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded"
+					minOccurs="0">
+				<xsd:element name="trayUpdateInfo"
+						type="tns:TrayUpdateInfo"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="TrayUpdateInfo">
+		<xsd:sequence>
+			<xsd:element name="trayNumber"
+					type="xsd:short"/>
+			<xsd:element minOccurs="0"
+					name="title"
+					type="xsd:string"/>
+			<xsd:element minOccurs="0"
+					name="barcode"
+					type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SetTrayEditAccess">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded"
+						name="TrayToSetEditAccess"
+						type="tns:TrayToSetEditAccess"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="TrayToSetEditAccess">
+		<xsd:sequence>
+			<xsd:element name="trayNumber"
+					type="xsd:int"/>
+			<xsd:element name="Editable"
+					type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="SetTrayEditAccessResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="message"
+						type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetTrayStatus">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetTrayStatusResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded"
+						name="status"
+						type="tns:TrayStatus"/>
+				<xsd:element minOccurs="0"
+						name="info"
+						type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="TrayStatus">
+		<xsd:sequence>
+			<xsd:element name="TrayNumber"
+					type="xsd:string"/>
+			<xsd:element name="FeederId"
+					type="xsd:string"/>
+			<xsd:element name="BayLevel"
+					type="tns:BayLevel"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="BayLevel">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="UPPER"/>
+			<xsd:enumeration value="LOWER"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="GetRequestStatus">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="requestId"
+						nillable="false"
+						type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="OperationRequestStatus">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="requestId"
+						nillable="false"
+						type="xsd:string"/>
+				<xsd:element name="status"
+						nillable="true"
+						type="xsd:int"/>
+				<xsd:element name="statusText"
+						nillable="true"
+						type="xsd:string"/>
+				<xsd:element name="error"
+						type="xsd:int"/>
+				<xsd:element name="errorText"
+						type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SetDateTime">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="date"
+						nillable="false"
+						type="xsd:string"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="time"
+						nillable="false"
+						type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SetDateTimeResult">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="result"
+						type="xsd:boolean"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:simpleType name="frequencyType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="OFF"/>
+			<xsd:enumeration value="HOURLY"/>
+			<xsd:enumeration value="DAILY"/>
+			<xsd:enumeration value="WEEKLY"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="SetBackUp">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="path"
+						nillable="false"
+						type="xsd:string"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="1"
+						name="frequency"
+						nillable="false"
+						type="tns:frequencyType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="BackUpResult">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="message"
+						type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="DVSStatusMessageSensor">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="title"
+					nillable="false"
+					type="tns:alphanumericspecials100"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="symbol"
+					nillable="false"
+					type="tns:alphanumeric20"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="address"
+					nillable="false"
+					type="tns:alphanumeric50"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="activeState"
+					nillable="false"
+					type="tns:alphanumeric50"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="inactiveState"
+					nillable="false"
+					type="tns:alphanumeric50"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DVSStatusMessage">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="type"
+					nillable="false"
+					type="tns:alphanumeric20"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="code"
+					nillable="false"
+					type="tns:alphanumeric20"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="title"
+					nillable="false"
+					type="xsd:string"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="details"
+					nillable="false"
+					type="xsd:string"/>
+			<xsd:element maxOccurs="unbounded"
+					minOccurs="0"
+					name="sensor"
+					type="tns:DVSStatusMessageSensor"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FeederStatus">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="feederId"
+					type="xsd:int"/>
+			<xsd:element maxOccurs="unbounded"
+					minOccurs="0"
+					name="dvsStatusMessage"
+					type="tns:DVSStatusMessage"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="feederState"
+					type="tns:FeederState"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NamedValue">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="id"
+					type="xsd:int"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="name"
+					type="xsd:string"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="description"
+					type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FeederState">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="feederId"
+					type="xsd:int"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="state"
+					type="tns:NamedValue"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="operationMode"
+					type="tns:NamedValue"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="mode"
+					type="xsd:string"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="activeTray"
+					type="tns:TrayState"/>
+			<xsd:element maxOccurs="unbounded"
+					minOccurs="0"
+					name="platforms"
+					type="tns:PlatformState"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PlatformState">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="platformId"
+					type="xsd:int"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="platformLevel"
+					type="xsd:string"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="height"
+					type="xsd:int"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="state"
+					type="tns:NamedValue"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="0"
+					name="tray"
+					type="tns:TrayState"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TrayState">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="trayId"
+					type="xsd:int"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="height"
+					type="xsd:int"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="state"
+					type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="GetDVSStatus">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="DVSStatusResult">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="softwareVersion"
+						type="xsd:string"/>
+				<xsd:element name="plcVersion"
+						type="xsd:string"/>
+				<xsd:element name="date"
+						type="xsd:string"/>
+				<xsd:element name="time"
+						type="xsd:string"/>
+				<xsd:element name="message"
+						type="xsd:string"/>
+				<xsd:element name="errorCode"
+						nillable="true"
+						type="xsd:string"/>
+				<xsd:element maxOccurs="unbounded"
+						minOccurs="0"
+						name="globalStatusMessage"
+						nillable="false"
+						type="tns:DVSStatusMessage"/>
+				<xsd:element maxOccurs="unbounded"
+						minOccurs="0"
+						name="feederStatuses"
+						nillable="false"
+						type="tns:FeederStatus"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="CheckHealth">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="CheckHealthResult">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="status"
+						type="xsd:int"/>
+				<xsd:element name="statusText"
+						type="xsd:string"/>
+				<xsd:element maxOccurs="unbounded"
+						minOccurs="0"
+						name="errors"
+						type="tns:Error"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ResetErrors">
+		<xsd:complexType>
+			<xsd:sequence/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ResetErrorsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="status"
+						type="xsd:int"/>
+				<xsd:element name="statusText"
+						type="xsd:string"/>
+				<xsd:element name="message"
+						type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="Error">
+		<xsd:sequence>
+			<xsd:element name="errorCode"
+					type="xsd:string"/>
+			<xsd:element name="errorText"
+					type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ErrorLogRecord">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="Date"
+					nillable="true"
+					type="xsd:dateTime"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="ErrorNumber"
+					nillable="true"
+					type="xsd:int"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="ErrorText"
+					nillable="true"
+					type="xsd:string"/>
+			<xsd:element maxOccurs="1"
+					minOccurs="1"
+					name="Object"
+					nillable="true"
+					type="tns:alphanumeric50"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="GetErrorLogList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="ErrorNumber"
+						nillable="true"
+						type="xsd:int"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="startDate"
+						nillable="true"
+						type="xsd:date"/>
+				<xsd:element maxOccurs="1"
+						minOccurs="0"
+						name="endDate"
+						nillable="true"
+						type="xsd:date"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetErrorLogListResult">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded"
+					minOccurs="0">
+				<xsd:element name="ErrorLogRecord"
+						type="tns:ErrorLogRecord"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="TurnOnVisualStorage">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="storageToShowModel"
+						type="tns:StorageToShowModel"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="TurnOffVisualStorage">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="storageToShowModel"
+						type="tns:StorageToShowModel"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="StorageToShowModel">
+		<xsd:sequence>
+			<xsd:element name="requestId"
+					type="xsd:string"/>
+			<xsd:element name="feederId"
+					type="xsd:int"/>
+			<xsd:element name="storageId"
+					type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

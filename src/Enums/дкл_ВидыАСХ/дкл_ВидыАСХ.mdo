@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Enum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="225694d9-908b-42b1-8bc9-b0fd5fd6335a">
+  <producedTypes>
+    <refType typeId="ff870fa7-afae-4719-9ccb-b7377215a3d0" valueTypeId="d91745b8-858a-4f39-a741-901e5e81c6c9"/>
+    <listType typeId="63b52cce-804a-44b3-a170-795df37e8453" valueTypeId="07b5ce7b-d7b3-4abc-aead-bcbae1e003cd"/>
+    <managerType typeId="94c2f7a5-2398-415d-9fb0-8d058a05bfd7" valueTypeId="04eb67fc-ea6e-4c1a-bacb-b2a935fdd5fd"/>
+  </producedTypes>
+  <name>дкл_ВидыАСХ</name>
+  <synonym>
+    <key>ru</key>
+    <value>Виды АСХ</value>
+  </synonym>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Order</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Ref</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <quickChoice>true</quickChoice>
+  <choiceMode>BothWays</choiceMode>
+  <enumValues uuid="9aa0a122-4f74-4e2f-8da4-d0bb7b02af1c">
+    <name>Карусель</name>
+    <synonym>
+      <key>ru</key>
+      <value>Карусель</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="63a20a9f-c245-4f47-b03f-a3d52876335d">
+    <name>Лифт</name>
+    <synonym>
+      <key>ru</key>
+      <value>Лифт</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="27b30487-d365-4af2-8d11-7b7965d9e325">
+    <name>ТяжелыйЛифт</name>
+    <synonym>
+      <key>ru</key>
+      <value>Тяжелый лифт</value>
+    </synonym>
+  </enumValues>
+</mdclass:Enum>

@@ -1,0 +1,503 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.dikom.ru/lift/integration/services/" elementFormQualified="false" attributeFormQualified="false">
+	<property name="BackUpResult">
+		<typeDef xsi:type="ObjectType">
+			<property name="message" type="xs:string"/>
+		</typeDef>
+	</property>
+	<property name="ClearLedDisplayMessage">
+		<typeDef xsi:type="ObjectType">
+			<property name="requestId" type="xs:string" nillable="false"/>
+		</typeDef>
+	</property>
+	<property name="ClearLedLineRange">
+		<typeDef xsi:type="ObjectType">
+			<property name="requestId" type="xs:string" nillable="false"/>
+		</typeDef>
+	</property>
+	<property name="DVSStatusResult">
+		<typeDef xsi:type="ObjectType">
+			<property name="softwareVersion" type="xs:string"/>
+			<property name="plcVersion" type="xs:string"/>
+			<property name="date" type="xs:string"/>
+			<property name="time" type="xs:string"/>
+			<property name="message" type="xs:string"/>
+			<property name="errorCode" type="xs:string" nillable="true"/>
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="globalStatusMessage" type="d4p1:DVSStatusMessage" lowerBound="0" upperBound="-1" nillable="false"/>
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="feederStatuses" type="d4p1:FeederStatus" lowerBound="0" upperBound="-1" nillable="false"/>
+		</typeDef>
+	</property>
+	<property name="GetDVSStatus">
+		<typeDef xsi:type="ObjectType"/>
+	</property>
+	<property name="GetErrorLogList">
+		<typeDef xsi:type="ObjectType">
+			<property name="ErrorNumber" type="xs:int" lowerBound="0" nillable="true"/>
+			<property name="startDate" type="xs:date" lowerBound="0" nillable="true"/>
+			<property name="endDate" type="xs:date" lowerBound="0" nillable="true"/>
+		</typeDef>
+	</property>
+	<property name="GetErrorLogListResult">
+		<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="ErrorLogRecord" type="d4p1:ErrorLogRecord" lowerBound="0" upperBound="-1"/>
+		</typeDef>
+	</property>
+	<property name="GetItemList">
+		<typeDef xsi:type="ObjectType"/>
+	</property>
+	<property name="GetOrderStatus">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="type" type="d4p1:orderType" nillable="false"/>
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="docNumber" type="d4p1:alphanumericspecials100" nillable="false"/>
+		</typeDef>
+	</property>
+	<property name="GetOrderStatusResult">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="docNumber" type="d4p1:alphanumericspecials100" nillable="false"/>
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="status" type="d4p1:orderStatus"/>
+			<property name="errorCode" type="xs:string" lowerBound="0" nillable="true"/>
+			<property name="message" type="xs:string" lowerBound="0"/>
+			<property name="docDate" type="xs:date" lowerBound="0" nillable="false"/>
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="rows" type="d4p1:OrderRows" lowerBound="0" nillable="false"/>
+		</typeDef>
+	</property>
+	<property name="GetRequestStatus">
+		<typeDef xsi:type="ObjectType">
+			<property name="requestId" type="xs:string" nillable="false"/>
+		</typeDef>
+	</property>
+	<property name="GetStockBalances">
+		<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="type" type="d4p1:balanceType" lowerBound="0" nillable="false"/>
+			<property name="storageUidFrom" type="xs:int" lowerBound="0"/>
+			<property name="storageUidTo" type="xs:int" lowerBound="0"/>
+			<property name="storageUid" type="xs:int" lowerBound="0" upperBound="-1"/>
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="itemId" type="d4p1:alphanumericspecials50" lowerBound="0" nillable="false"/>
+		</typeDef>
+	</property>
+	<property name="GetTray">
+		<typeDef xsi:type="ObjectType">
+			<property name="requestId" type="xs:string" nillable="false"/>
+			<property name="trayNo" type="xs:int" nillable="false"/>
+			<property name="feederId" type="xs:int" nillable="false"/>
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="platform" type="d4p1:platformType" nillable="false"/>
+		</typeDef>
+	</property>
+	<property name="GetTrayList">
+		<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+			<property name="trayUid" type="xs:short" lowerBound="0" upperBound="-1"/>
+		</typeDef>
+	</property>
+	<property name="GetTraysInfo">
+		<typeDef xsi:type="ObjectType"/>
+	</property>
+	<property name="GetUserList">
+		<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="userId" type="d4p1:alphanumeric50" lowerBound="0" nillable="true"/>
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="login" type="d4p1:login" lowerBound="0" nillable="true"/>
+		</typeDef>
+	</property>
+	<property name="GetUserListResult">
+		<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="user" type="d4p1:User" lowerBound="0" upperBound="-1"/>
+		</typeDef>
+	</property>
+	<property name="GetUserLogList">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="userId" type="d4p1:alphanumeric50" lowerBound="0" nillable="true"/>
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="login" type="d4p1:login" lowerBound="0" nillable="true"/>
+			<property name="startDate" type="xs:date" lowerBound="0" nillable="true"/>
+			<property name="endDate" type="xs:date" lowerBound="0" nillable="true"/>
+		</typeDef>
+	</property>
+	<property name="GetUserLogListResult">
+		<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="userLogRecord" type="d4p1:UserLogRecord" lowerBound="0" upperBound="-1"/>
+		</typeDef>
+	</property>
+	<property name="ItemListResult">
+		<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="item" type="d4p1:Item" lowerBound="0" upperBound="-1"/>
+		</typeDef>
+	</property>
+	<property name="OperationRequestStatus">
+		<typeDef xsi:type="ObjectType">
+			<property name="requestId" type="xs:string" nillable="false"/>
+			<property name="status" type="xs:int" nillable="true"/>
+			<property name="statusText" type="xs:string" nillable="true"/>
+			<property name="errorNil" type="xs:boolean" nillable="false"/>
+			<property name="error" type="xs:int" nillable="true"/>
+			<property name="errorText" type="xs:string" nillable="true"/>
+		</typeDef>
+	</property>
+	<property name="OrderStatusChange">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="type" type="d4p1:orderType" nillable="false"/>
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="docNumber" type="d4p1:alphanumericspecials100" nillable="false"/>
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="status" type="d4p1:changeStatus" nillable="false"/>
+		</typeDef>
+	</property>
+	<property name="OrderStatusChangeResult">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="docNumber" type="d4p1:alphanumericspecials100" nillable="false"/>
+			<property name="changed" type="xs:boolean" nillable="false"/>
+			<property name="errorCode" type="xs:string" lowerBound="0" nillable="true"/>
+			<property name="message" type="xs:string" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="RetrievalOrdersList">
+		<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="order" type="d4p1:RetrievalOrder" lowerBound="0" upperBound="-1"/>
+		</typeDef>
+	</property>
+	<property name="ReturnTray">
+		<typeDef xsi:type="ObjectType">
+			<property name="requestId" type="xs:string" nillable="false"/>
+			<property name="trayNo" type="xs:int" nillable="false"/>
+		</typeDef>
+	</property>
+	<property name="SetBackUp">
+		<typeDef xsi:type="ObjectType">
+			<property name="path" type="xs:string" nillable="false"/>
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="frequency" type="d4p1:frequencyType" nillable="false"/>
+		</typeDef>
+	</property>
+	<property name="SetDateTime">
+		<typeDef xsi:type="ObjectType">
+			<property name="date" type="xs:string" lowerBound="0" nillable="false"/>
+			<property name="time" type="xs:string" lowerBound="0" nillable="false"/>
+		</typeDef>
+	</property>
+	<property name="SetDateTimeResult">
+		<typeDef xsi:type="ObjectType">
+			<property name="result" type="xs:boolean"/>
+		</typeDef>
+	</property>
+	<property name="SetLedDisplayMessage">
+		<typeDef xsi:type="ObjectType">
+			<property name="requestId" type="xs:string" nillable="false"/>
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="message" type="d4p1:ledalphabet" nillable="false"/>
+		</typeDef>
+	</property>
+	<property name="SetLedLineRange">
+		<typeDef xsi:type="ObjectType">
+			<property name="requestId" type="xs:string" nillable="false"/>
+			<property name="from" type="xs:int" nillable="false"/>
+			<property name="to" type="xs:int" nillable="false"/>
+		</typeDef>
+	</property>
+	<property name="StockBalances">
+		<typeDef xsi:type="ObjectType">
+			<property name="message" type="xs:string" lowerBound="0"/>
+			<property name="errorCode" type="xs:string" lowerBound="0"/>
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="itemBalance" type="d4p1:ItemBalance" lowerBound="0" upperBound="-1"/>
+		</typeDef>
+	</property>
+	<property name="StorageOrdersList">
+		<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="order" type="d4p1:StorageOrder" lowerBound="0" upperBound="-1"/>
+		</typeDef>
+	</property>
+	<property name="SubmitResult">
+		<typeDef xsi:type="ObjectType">
+			<property name="message" type="xs:string"/>
+			<property name="errorCode" type="xs:string" nillable="true"/>
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="orders" type="d4p1:SubmitResultOrder" lowerBound="0" upperBound="-1" nillable="false"/>
+		</typeDef>
+	</property>
+	<property name="TrayListResult">
+		<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="tray" type="d4p1:Tray" lowerBound="0" upperBound="-1"/>
+		</typeDef>
+	</property>
+	<property name="TraysInfoResult">
+		<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="trayInfoHeader" type="d4p1:TrayInfoHeader" lowerBound="0" upperBound="-1"/>
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="tray" type="d4p1:TrayInfo" lowerBound="0" upperBound="-1"/>
+		</typeDef>
+	</property>
+	<property name="UpdateTrayInfoList">
+		<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="trayUpdateInfo" type="d4p1:TrayUpdateInfo" lowerBound="0" upperBound="-1"/>
+		</typeDef>
+	</property>
+	<property name="UploadItemList">
+		<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="item" type="d4p1:Item" lowerBound="0" upperBound="-1"/>
+		</typeDef>
+	</property>
+	<property name="UploadResult">
+		<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+			<property name="message" type="xs:string"/>
+			<property name="errorCode" type="xs:string" nillable="true"/>
+		</typeDef>
+	</property>
+	<property name="UploadStocksList">
+		<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="stock" type="d4p1:Stock" lowerBound="0" upperBound="-1"/>
+		</typeDef>
+	</property>
+	<property name="UploadUserList">
+		<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+			<property xmlns:d4p1="http://www.dikom.ru/lift/integration/services/" name="user" type="d4p1:User" lowerBound="0" upperBound="-1"/>
+		</typeDef>
+	</property>
+	<valueType name="alphanumeric20" base="xs:string" variety="Atomic" maxLength="20">
+		<pattern>([a-zA-ZЁёа-яА-Я0-9\-])*</pattern>
+	</valueType>
+	<valueType name="alphanumeric50" base="xs:string" variety="Atomic" maxLength="50">
+		<pattern>([a-zA-ZЁёа-яА-Я 0-9\-])*</pattern>
+	</valueType>
+	<valueType name="alphanumericspecials100" base="xs:string" variety="Atomic" maxLength="100">
+		<pattern>([a-zA-ZЁёа-яА-Я 0-9_=!@#№$®™`’″«»“”√⌀øØ\^≤≥—±÷≠×·‑ΔδöȽɰɛ,;:~\.–\-\?%\*\(\)\[\]\{\}\+&amp;&gt;&lt;"'°˚\\/|⁰¹²³⁴-⁹¼-¾⅐-⅞])*</pattern>
+	</valueType>
+	<valueType name="alphanumericspecials150" base="xs:string" variety="Atomic" maxLength="150">
+		<pattern>([a-zA-ZЁёа-яА-Я 0-9_=!@#№$®™`’″«»“”√⌀øØ\^≤≥—±÷≠×·‑ΔδöȽɰɛ,;:~\.–\-\?%\*\(\)\[\]\{\}\+&amp;&gt;&lt;"'°˚\\/|⁰¹²³⁴-⁹¼-¾⅐-⅞])*</pattern>
+	</valueType>
+	<valueType name="alphanumericspecials50" base="xs:string" variety="Atomic" maxLength="50">
+		<pattern>([a-zA-ZЁёа-яА-Я 0-9_=!@#№$®™`’″«»“”√⌀øØ\^≤≥—±÷≠×·‑ΔδöȽɰɛ,;:~\.–\-\?%\*\(\)\[\]\{\}\+&amp;&gt;&lt;"'°˚\\/|⁰¹²³⁴-⁹¼-¾⅐-⅞])*</pattern>
+	</valueType>
+	<valueType name="balanceType" base="xs:string" variety="Atomic">
+		<enumeration>TOTAL</enumeration>
+		<enumeration>STORAGES</enumeration>
+	</valueType>
+	<valueType name="barcode" base="xs:string" variety="Atomic" maxLength="255"/>
+	<valueType name="changeStatus" base="xs:string" variety="Atomic">
+		<enumeration>READY</enumeration>
+		<enumeration>PRELOADING</enumeration>
+		<enumeration>DELETED</enumeration>
+	</valueType>
+	<valueType name="date" base="xs:string" variety="Atomic">
+		<pattern>[\d]{2}.[\d]{2}.[\d]{4}</pattern>
+	</valueType>
+	<valueType name="frequencyType" base="xs:string" variety="Atomic">
+		<enumeration>OFF</enumeration>
+		<enumeration>HOURLY</enumeration>
+		<enumeration>DAILY</enumeration>
+		<enumeration>WEEKLY</enumeration>
+	</valueType>
+	<valueType name="latinalphanumericspecials50" base="xs:string" variety="Atomic" maxLength="50">
+		<pattern>([a-zA-Z 0-9_=!@#№$®™`’″«»“”√⌀øØ\^≤≥—±÷≠×·‑ΔδöȽɰɛ,;:~\.–\-\?%\*\(\)\[\]\{\}\+&amp;&gt;&lt;"'°˚\\/|⁰¹²³⁴-⁹¼-¾⅐-⅞])*</pattern>
+	</valueType>
+	<valueType name="ledalphabet" base="xs:string" variety="Atomic">
+		<pattern>([a-zA-ZЁёа-яА-Я 0-9_=!@#№,\.\-\?%\*\(\)\+&amp;&gt;&lt;"'°\\/|])*</pattern>
+	</valueType>
+	<valueType name="login" base="xs:string" variety="Atomic" maxLength="50">
+		<pattern>([a-zA-ZЁёа-яА-Я0-9\-\._])*</pattern>
+	</valueType>
+	<valueType name="operationsError" base="xs:int" variety="Atomic">
+		<enumeration>0</enumeration>
+		<enumeration>1</enumeration>
+		<enumeration>2</enumeration>
+		<enumeration>3</enumeration>
+		<enumeration>4</enumeration>
+		<enumeration>5</enumeration>
+	</valueType>
+	<valueType name="orderStatus" base="xs:string" variety="Atomic">
+		<enumeration>PRELOADING</enumeration>
+		<enumeration>READY_TO_LOAD</enumeration>
+		<enumeration>LOADING</enumeration>
+		<enumeration>READY_TO_UNLOAD</enumeration>
+		<enumeration>UNLOADING</enumeration>
+		<enumeration>PAUSE</enumeration>
+		<enumeration>COMPLETED</enumeration>
+	</valueType>
+	<valueType name="orderType" base="xs:string" variety="Atomic">
+		<enumeration>RETRIEVE</enumeration>
+		<enumeration>STORE</enumeration>
+	</valueType>
+	<valueType name="platformType" base="xs:int" variety="Atomic">
+		<enumeration>0</enumeration>
+		<enumeration>1</enumeration>
+		<enumeration>2</enumeration>
+	</valueType>
+	<valueType name="rfid" base="xs:string" variety="Atomic" maxLength="255"/>
+	<valueType name="roleType" base="xs:string" variety="Atomic">
+		<enumeration>ADMIN</enumeration>
+		<enumeration>OPERATOR</enumeration>
+		<enumeration>ENGINEER</enumeration>
+	</valueType>
+	<valueType name="rowStatus" base="xs:string" variety="Atomic">
+		<enumeration>NOT_STARTED</enumeration>
+		<enumeration>PARTLY_DONE</enumeration>
+		<enumeration>INSUFFICIENCY</enumeration>
+		<enumeration>NO_SPACE</enumeration>
+		<enumeration>COMPLETED</enumeration>
+	</valueType>
+	<valueType name="time" base="xs:string" variety="Atomic">
+		<pattern>[\d]{2}:[\d]{2}</pattern>
+	</valueType>
+	<valueType name="uomType" base="xs:string" variety="Atomic">
+		<enumeration>EACH</enumeration>
+		<enumeration>SET</enumeration>
+		<enumeration>PACK</enumeration>
+	</valueType>
+	<objectType name="DVSStatusMessage">
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="type" type="d3p1:alphanumeric20" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="code" type="d3p1:alphanumeric20" nillable="false"/>
+		<property name="title" type="xs:string" nillable="false"/>
+		<property name="details" type="xs:string" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="sensor" type="d3p1:DVSStatusMessageSensor" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="DVSStatusMessageSensor">
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="title" type="d3p1:alphanumericspecials100" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="symbol" type="d3p1:alphanumeric20" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="address" type="d3p1:alphanumeric50" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="activeState" type="d3p1:alphanumeric50" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="inactiveState" type="d3p1:alphanumeric50" nillable="false"/>
+	</objectType>
+	<objectType name="ErrorLogRecord">
+		<property name="Date" type="xs:dateTime" nillable="true"/>
+		<property name="ErrorNumber" type="xs:int" nillable="true"/>
+		<property name="ErrorText" type="xs:string" nillable="true"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="Object" type="d3p1:alphanumeric50" nillable="true"/>
+	</objectType>
+	<objectType name="FeederState">
+		<property name="feederId" type="xs:int"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="state" type="d3p1:NamedValue"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="operationMode" type="d3p1:NamedValue"/>
+		<property name="mode" type="xs:string"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="activeTray" type="d3p1:TrayState" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="platforms" type="d3p1:PlatformState" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="FeederStatus">
+		<property name="feederId" type="xs:int"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="dvsStatusMessage" type="d3p1:DVSStatusMessage" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="feederState" type="d3p1:FeederState" lowerBound="0"/>
+	</objectType>
+	<objectType name="Item">
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="itemId" type="d3p1:alphanumericspecials50" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="itemName" type="d3p1:alphanumericspecials150" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="unit" type="d3p1:uomType" nillable="false"/>
+		<property name="active" type="xs:boolean" nillable="false"/>
+		<property name="isDecimal" type="xs:boolean" lowerBound="0" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="extraCode" type="d3p1:alphanumeric20" lowerBound="0" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="vendorNumber" type="d3p1:alphanumericspecials100" lowerBound="0" nillable="false"/>
+		<property name="width" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="height" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="depth" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="weight" type="xs:int" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="barcode" type="d3p1:barcode" lowerBound="0" nillable="true"/>
+		<property name="weightCheck" type="xs:boolean" lowerBound="0" nillable="false"/>
+	</objectType>
+	<objectType name="ItemBalance" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="itemId" type="d3p1:alphanumericspecials50" nillable="false"/>
+		<property name="storage" type="xs:string" lowerBound="0" nillable="false"/>
+		<property name="availableQuantity" type="xs:decimal" nillable="false"/>
+		<property name="totalQuantity" type="xs:decimal" nillable="false"/>
+	</objectType>
+	<objectType name="NamedValue">
+		<property name="id" type="xs:int" lowerBound="0"/>
+		<property name="name" type="xs:string" lowerBound="0"/>
+		<property name="description" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="OrderRowStatus">
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="itemId" type="d3p1:alphanumericspecials50" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="status" type="d3p1:rowStatus"/>
+		<property name="quantityFact" type="xs:int"/>
+		<property name="quantity" type="xs:int"/>
+	</objectType>
+	<objectType name="OrderRows">
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="row" type="d3p1:OrderRowStatus" upperBound="-1" nillable="false"/>
+	</objectType>
+	<objectType name="PlatformState">
+		<property name="platformId" type="xs:int"/>
+		<property name="platformLevel" type="xs:string"/>
+		<property name="height" type="xs:int"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="state" type="d3p1:NamedValue"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="tray" type="d3p1:TrayState" lowerBound="0"/>
+	</objectType>
+	<objectType name="RetrievalOrder">
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="docNumber" type="d3p1:alphanumericspecials100" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="userId" type="d3p1:alphanumeric50" nillable="false"/>
+		<property name="docDate" type="xs:date" nillable="false"/>
+		<property name="execDate" type="xs:dateTime" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="area" type="d3p1:alphanumericspecials100" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="rows" type="d3p1:RetrievalOrderRow" lowerBound="0" upperBound="-1" nillable="false"/>
+	</objectType>
+	<objectType name="RetrievalOrderRow">
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="itemId" type="d3p1:alphanumericspecials50" nillable="false"/>
+		<property name="quantity" type="xs:int"/>
+	</objectType>
+	<objectType name="Stock">
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="itemId" type="d3p1:alphanumericspecials50" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="trayQty" type="d3p1:TrayQuantity" upperBound="-1" nillable="false"/>
+	</objectType>
+	<objectType name="StorageOrder">
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="docNumber" type="d3p1:alphanumericspecials100" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="userId" type="d3p1:alphanumeric50" nillable="false"/>
+		<property name="docDate" type="xs:date" nillable="false"/>
+		<property name="execDate" type="xs:dateTime" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="area" type="d3p1:alphanumericspecials100" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="rows" type="d3p1:StorageOrderRow" lowerBound="0" upperBound="-1" nillable="false"/>
+	</objectType>
+	<objectType name="StorageOrderRow">
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="itemId" type="d3p1:alphanumericspecials50" nillable="false"/>
+		<property name="quantity" type="xs:int"/>
+	</objectType>
+	<objectType name="SubmitResultOrder">
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="docNumber" type="d3p1:alphanumericspecials100" nillable="false"/>
+		<property name="errorCode" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="message" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="rows" type="d3p1:SubmitResultOrderRow" lowerBound="0" upperBound="-1" nillable="false"/>
+	</objectType>
+	<objectType name="SubmitResultOrderRow">
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="itemId" type="d3p1:alphanumericspecials50" nillable="false"/>
+		<property name="errorCode" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="message" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Tray">
+		<property name="trayUid" type="xs:short"/>
+		<property name="title" type="xs:string"/>
+		<property name="width" type="xs:int"/>
+		<property name="depth" type="xs:int"/>
+		<property name="weight" type="xs:float"/>
+		<property name="barcode" type="xs:string" nillable="true"/>
+	</objectType>
+	<objectType name="TrayInfo">
+		<property name="trayNo" type="xs:int"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="trayName" type="d3p1:alphanumeric50"/>
+		<property name="trayMaxHeight" type="xs:int" lowerBound="0"/>
+		<property name="trayMaxWeight" type="xs:float" lowerBound="0"/>
+	</objectType>
+	<objectType name="TrayInfoHeader">
+		<property name="trayWidthX" type="xs:int" lowerBound="0"/>
+		<property name="trayDepthY" type="xs:int" lowerBound="0"/>
+	</objectType>
+	<objectType name="TrayQuantity">
+		<property name="trayUid" type="xs:int" nillable="false"/>
+		<property name="quantity" type="xs:decimal" lowerBound="0"/>
+		<property name="posX" type="xs:int" lowerBound="0"/>
+		<property name="posY" type="xs:int" lowerBound="0"/>
+	</objectType>
+	<objectType name="TrayState">
+		<property name="trayId" type="xs:int"/>
+		<property name="height" type="xs:int"/>
+		<property name="state" type="xs:string"/>
+	</objectType>
+	<objectType name="TrayUpdateInfo">
+		<property name="trayUid" type="xs:short"/>
+		<property name="title" type="xs:string" lowerBound="0"/>
+		<property name="barcode" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="User">
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="userId" type="d3p1:alphanumeric50" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="firstName" type="d3p1:alphanumeric50" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="lastName" type="d3p1:alphanumeric50" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="middleName" type="d3p1:alphanumeric50" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="position" type="d3p1:alphanumericspecials50" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="login" type="d3p1:login" nillable="false"/>
+		<property name="password" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="role" type="d3p1:roleType" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="rfid" type="d3p1:rfid" lowerBound="0" nillable="true"/>
+		<property name="active" type="xs:boolean" nillable="false"/>
+		<property name="lastEntrance" type="xs:dateTime" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="UserLogRecord">
+		<property name="eventDate" type="xs:date" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="event" type="d3p1:alphanumeric50" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="name" type="d3p1:alphanumeric50" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="role" type="d3p1:roleType" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="login" type="d3p1:login" nillable="false"/>
+		<property xmlns:d3p1="http://www.dikom.ru/lift/integration/services/" name="userId" type="d3p1:alphanumeric50" nillable="false"/>
+	</objectType>
+</package>

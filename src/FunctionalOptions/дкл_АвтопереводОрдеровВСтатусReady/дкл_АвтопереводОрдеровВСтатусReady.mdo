@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:FunctionalOption xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="0350a22a-de3f-4a76-af84-c74bcdd8ad0c">
+  <name>дкл_АвтопереводОрдеровВСтатусReady</name>
+  <synonym>
+    <key>ru</key>
+    <value>Автоперевод ордеров в статус Ready</value>
+  </synonym>
+  <location>Catalog.дкл_НастройкиСкладовЛифтов.Attribute.АвтопереводОрдеровВСтатусReady</location>
+  <privilegedGetMode>true</privilegedGetMode>
+</mdclass:FunctionalOption>

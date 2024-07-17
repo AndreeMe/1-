@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Enum xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="dfc5e933-1eb7-4265-9fc9-13f2db69fa67">
+  <producedTypes>
+    <refType typeId="9ad2919b-dd25-4800-ab84-19f367499611" valueTypeId="5ec3e158-f194-4d9f-9e3c-4e9efc13aead"/>
+    <listType typeId="a71e8b82-3674-403b-829f-4e65932566bd" valueTypeId="d6b6da4c-5e19-401a-a29e-baeec0a7e5d7"/>
+    <managerType typeId="6fcb5c3c-db7f-4be7-92c6-0e111c34af27" valueTypeId="514981f6-4bae-4cb9-89c0-3e00c3b43f4f"/>
+  </producedTypes>
+  <name>дкл_СостоянияПолок</name>
+  <synonym>
+    <key>ru</key>
+    <value>Состояния полок</value>
+  </synonym>
+  <quickChoice>true</quickChoice>
+  <choiceMode>BothWays</choiceMode>
+  <enumValues uuid="f85147e5-c32b-4ed0-8a63-4e94910ab1dd">
+    <name>Возвращена</name>
+    <synonym>
+      <key>ru</key>
+      <value>Возвращена</value>
+    </synonym>
+    <comment>0-без цвета</comment>
+  </enumValues>
+  <enumValues uuid="9d9411f6-aafe-4640-a511-e6f2d1bde52a">
+    <name>Ошибка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ошибка</value>
+    </synonym>
+    <comment>1-красный</comment>
+  </enumValues>
+  <enumValues uuid="e2e7e1ff-022d-410b-9ad4-a09267ac4ca7">
+    <name>Выдана</name>
+    <synonym>
+      <key>ru</key>
+      <value>Выдана</value>
+    </synonym>
+    <comment>2-зеленый</comment>
+  </enumValues>
+  <enumValues uuid="98b186e6-dba9-4ec2-9fbc-86240cbfa17c">
+    <name>Перемещается</name>
+    <synonym>
+      <key>ru</key>
+      <value>Перемещается</value>
+    </synonym>
+    <comment>3-желтый</comment>
+  </enumValues>
+</mdclass:Enum>

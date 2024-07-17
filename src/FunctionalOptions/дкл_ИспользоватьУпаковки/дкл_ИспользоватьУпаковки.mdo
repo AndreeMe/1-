@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:FunctionalOption xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="3125ba0e-0121-438e-9c00-d7e26ba1c6f6">
+  <name>дкл_ИспользоватьУпаковки</name>
+  <synonym>
+    <key>ru</key>
+    <value>Использовать упаковки</value>
+  </synonym>
+  <location>Catalog.дкл_НастройкиСкладовЛифтов.Attribute.ИспользоватьУпаковки</location>
+  <privilegedGetMode>true</privilegedGetMode>
+  <content>InformationRegister.дкл_НоменклатураСкладов.Dimension.Упаковка</content>
+</mdclass:FunctionalOption>

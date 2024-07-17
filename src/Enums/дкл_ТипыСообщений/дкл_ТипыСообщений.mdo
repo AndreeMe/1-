@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Enum xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="e105eb90-3e71-488c-a1cc-ea2716e1e9ee">
+  <producedTypes>
+    <refType typeId="32b1711d-149d-4135-b2e2-4292a4e2cff4" valueTypeId="c5fcf862-f6fb-48d5-9e72-74edd5d8c5f5"/>
+    <listType typeId="18a51918-1a7a-4cfe-b070-f643a2ed39e9" valueTypeId="864a84cf-7fce-43e0-ad65-3c0f4179a3b8"/>
+    <managerType typeId="51fbea98-ceec-424a-835a-48db05151bac" valueTypeId="ddd5d40a-3a00-4d5b-bbc1-bdbc3ac925ae"/>
+  </producedTypes>
+  <name>дкл_ТипыСообщений</name>
+  <synonym>
+    <key>ru</key>
+    <value>Типы сообщений</value>
+  </synonym>
+  <quickChoice>true</quickChoice>
+  <choiceMode>BothWays</choiceMode>
+  <enumValues uuid="132a6619-16ef-41d7-a2b2-9ef4a624467c">
+    <name>changeOrderStatus</name>
+    <synonym>
+      <key>ru</key>
+      <value>changeOrderStatus</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="e31c8581-32c2-41e8-921c-1bdcc6035e3a">
+    <name>ExternalIntegration_v16</name>
+    <synonym>
+      <key>ru</key>
+      <value>ExternalIntegration_v16</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="97e3f731-fb72-4b4a-94e3-3cb0fdd8fa3e">
+    <name>ExternalIntegration_v21</name>
+    <synonym>
+      <key>ru</key>
+      <value>ExternalIntegration_v21</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="59216fa6-68c0-48ae-ab2c-b29fcf87b7d6">
+    <name>ExternalIntegration_v21_HTTP</name>
+    <synonym>
+      <key>ru</key>
+      <value>ExternalIntegration_v21_HTTP</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="b782d399-7192-4b25-b85b-60d751d0fb1c">
+    <name>ExternalIntegration_v25</name>
+    <synonym>
+      <key>ru</key>
+      <value>ExternalIntegration_v25</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="ae243de7-f176-4c61-bbca-b12bf7429a21">
+    <name>submitOrder</name>
+    <synonym>
+      <key>ru</key>
+      <value>submitOrder</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="a2b4e37b-aad1-47fa-a923-02ef06f3e850">
+    <name>submitRetrievalOrders</name>
+    <synonym>
+      <key>ru</key>
+      <value>submitRetrievalOrders</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="a8b9f537-e390-4ce1-8f2a-1374c9079b54">
+    <name>submitStorageOrders</name>
+    <synonym>
+      <key>ru</key>
+      <value>submitStorageOrders</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="fa5a1a96-dae4-45e8-87ff-52804c40ac9a">
+    <name>uploadItemList</name>
+    <synonym>
+      <key>ru</key>
+      <value>uploadItemList</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="5690b626-d06b-4f48-be3e-4713c77fff73">
+    <name>uploadUserList</name>
+    <synonym>
+      <key>ru</key>
+      <value>uploadUserList</value>
+    </synonym>
+  </enumValues>
+</mdclass:Enum>

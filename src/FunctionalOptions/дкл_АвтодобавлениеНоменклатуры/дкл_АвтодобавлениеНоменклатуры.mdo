@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:FunctionalOption xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="abb6385e-0c38-4be3-9fd7-dad8171866a8">
+  <name>дкл_АвтодобавлениеНоменклатуры</name>
+  <synonym>
+    <key>ru</key>
+    <value>Дкл автодобавление номенклатуры</value>
+  </synonym>
+  <location>Catalog.дкл_НастройкиСкладовЛифтов.Attribute.АвтодобавлениеНоменклатуры</location>
+  <privilegedGetMode>true</privilegedGetMode>
+</mdclass:FunctionalOption>

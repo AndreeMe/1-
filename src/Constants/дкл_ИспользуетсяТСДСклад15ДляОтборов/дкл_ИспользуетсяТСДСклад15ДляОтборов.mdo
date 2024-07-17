@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Constant xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="fa2decb1-fa63-430e-ad8a-312470b77e17">
+  <producedTypes>
+    <managerType typeId="b3d0e7ae-9b93-4022-afa9-5c0e6a9afc98" valueTypeId="9f28acd8-85c5-4ab1-a25a-c98fa5529360"/>
+    <valueManagerType typeId="02325af0-de81-4aff-8d9c-75eee5f9cb9f" valueTypeId="d4c9de55-d044-49f1-b860-7d8df6aa24d4"/>
+    <valueKeyType typeId="da8ccd1f-0f15-4a7e-a556-ae9ab23b6f15" valueTypeId="3f97efad-6689-4ff6-bcc4-aacec9989df0"/>
+  </producedTypes>
+  <name>дкл_ИспользуетсяТСДСклад15ДляОтборов</name>
+  <synonym>
+    <key>ru</key>
+    <value>Используется ТСД &quot;Склад15&quot; для отборов</value>
+  </synonym>
+  <type>
+    <types>Boolean</types>
+  </type>
+  <useStandardCommands>true</useStandardCommands>
+  <minValue xsi:type="core:UndefinedValue"/>
+  <maxValue xsi:type="core:UndefinedValue"/>
+  <dataLockControlMode>Managed</dataLockControlMode>
+</mdclass:Constant>

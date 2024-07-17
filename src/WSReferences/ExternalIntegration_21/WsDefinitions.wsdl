@@ -1,0 +1,966 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/"
+		xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:tns="http://www.dikom.ru/lift/integration/services/"
+		xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+		xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:xsd1="0"
+		xmlns:xsd2="http://www.dikom.ru/lift/integration/services/"
+		name="ExternalIntegration"
+		targetNamespace="http://www.dikom.ru/lift/integration/services/">
+	<types>
+		<xsd:schema xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+				xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				targetNamespace="0">
+			<xsd:import namespace="http://www.dikom.ru/lift/integration/services/"
+					schemaLocation="file://1.xsd"/>
+		</xsd:schema>
+	</types>
+	<message name="uploadUserListRequest">
+		<part name="upload"
+				element="tns:UploadUserList"/>
+	</message>
+	<message name="uploadUserListResponse">
+		<part name="result"
+				element="tns:UploadResult"/>
+	</message>
+	<message name="getUserListRequest">
+		<part name="params"
+				element="tns:GetUserList"/>
+	</message>
+	<message name="getUserListResponse">
+		<part name="result"
+				element="tns:GetUserListResult"/>
+	</message>
+	<message name="getUserLogListRequest">
+		<part name="params"
+				element="tns:GetUserLogList"/>
+	</message>
+	<message name="getUserLogListResponse">
+		<part name="result"
+				element="tns:GetUserLogListResult"/>
+	</message>
+	<message name="uploadStorageRequest">
+		<part name="request"
+				element="tns:UploadStorage"/>
+	</message>
+	<message name="uploadStorageResponse">
+		<part name="response"
+				element="tns:UploadStorageResponse"/>
+	</message>
+	<message name="getStorageListRequest">
+		<part name="request"
+				element="tns:GetStorageList"/>
+	</message>
+	<message name="getStorageListResponse">
+		<part name="response"
+				element="tns:GetStorageListResult"/>
+	</message>
+	<message name="deleteStorageRequest">
+		<part name="request"
+				element="tns:DeleteStorage"/>
+	</message>
+	<message name="deleteStorageResponse">
+		<part name="response"
+				element="tns:DeleteStorageResponse"/>
+	</message>
+	<message name="uploadItemListRequest">
+		<part name="upload"
+				element="tns:UploadItemList"/>
+	</message>
+	<message name="uploadItemListResponse">
+		<part name="result"
+				element="tns:UploadResult"/>
+	</message>
+	<message name="getItemListRequest">
+		<part name="request"
+				element="tns:GetItemList"/>
+	</message>
+	<message name="getItemListResponse">
+		<part name="result"
+				element="tns:ItemListResult"/>
+	</message>
+	<message name="uploadItemStocksRequest">
+		<part name="upload"
+				element="tns:UploadStocksList"/>
+	</message>
+	<message name="uploadItemStocksResponse">
+		<part name="result"
+				element="tns:UploadResult"/>
+	</message>
+	<message name="getStockBalancesRequest">
+		<part name="params"
+				element="tns:GetStockBalances"/>
+	</message>
+	<message name="getStockBalancesResponse">
+		<part name="result"
+				element="tns:StockBalances"/>
+	</message>
+	<message name="submitRetrievalOrdersRequest">
+		<part name="orders"
+				element="tns:RetrievalOrdersList"/>
+	</message>
+	<message name="submitRetrievalOrdersResponse">
+		<part name="result"
+				element="tns:SubmitResult"/>
+	</message>
+	<message name="changeOrderStatusRequest">
+		<part name="status"
+				element="tns:OrderStatusChange"/>
+	</message>
+	<message name="changeOrderStatusResponse">
+		<part name="result"
+				element="tns:OrderStatusChangeResult"/>
+	</message>
+	<message name="getOrderStatusRequest">
+		<part name="params"
+				element="tns:GetOrderStatus"/>
+	</message>
+	<message name="getOrderStatusResponse">
+		<part name="result"
+				element="tns:GetOrderStatusResult"/>
+	</message>
+	<message name="submitStorageOrdersRequest">
+		<part name="orders"
+				element="tns:StorageOrdersList"/>
+	</message>
+	<message name="submitStorageOrdersResponse">
+		<part name="result"
+				element="tns:SubmitResult"/>
+	</message>
+	<message name="setLedLineRangeRequest">
+		<part name="params"
+				element="tns:SetLedLineRange"/>
+	</message>
+	<message name="setLedLineRangeResponse">
+		<part name="result"
+				element="tns:OperationRequestStatus"/>
+	</message>
+	<message name="clearLedLineRangeRequest">
+		<part name="params"
+				element="tns:ClearLedLineRange"/>
+	</message>
+	<message name="clearLedLineRangeResponse">
+		<part name="result"
+				element="tns:OperationRequestStatus"/>
+	</message>
+	<message name="setLedDisplayMessageRequest">
+		<part name="params"
+				element="tns:SetLedDisplayMessage"/>
+	</message>
+	<message name="setLedDisplayMessageResponse">
+		<part name="result"
+				element="tns:OperationRequestStatus"/>
+	</message>
+	<message name="clearLedDisplayMessageRequest">
+		<part name="params"
+				element="tns:ClearLedDisplayMessage"/>
+	</message>
+	<message name="clearLedDisplayMessageResponse">
+		<part name="result"
+				element="tns:OperationRequestStatus"/>
+	</message>
+	<message name="getTrayOperationRequest">
+		<part name="params"
+				element="tns:GetTray"/>
+	</message>
+	<message name="getTrayOperationResponse">
+		<part name="result"
+				element="tns:OperationRequestStatus"/>
+	</message>
+	<message name="getTraySecureOperationRequest">
+		<part name="params"
+				element="tns:GetTraySecure"/>
+	</message>
+	<message name="getTrayListRequest">
+		<part name="request"
+				element="tns:GetTrayList"/>
+	</message>
+	<message name="getTrayListResponse">
+		<part name="result"
+				element="tns:TrayListResult"/>
+	</message>
+	<message name="returnTrayOperationRequest">
+		<part name="params"
+				element="tns:ReturnTray"/>
+	</message>
+	<message name="returnTrayOperationResponse">
+		<part name="result"
+				element="tns:OperationRequestStatus"/>
+	</message>
+	<message name="returnTraySecureOperationRequest">
+		<part name="params"
+				element="tns:ReturnTraySecure"/>
+	</message>
+	<message name="updateTrayInfoListRequest">
+		<part name="params"
+				element="tns:UpdateTrayInfoList"/>
+	</message>
+	<message name="updateTrayInfoListResponse">
+		<part name="result"
+				element="tns:UploadResult"/>
+	</message>
+	<message name="setTrayEditAccessRequest">
+		<part name="request"
+				element="tns:SetTrayEditAccess"/>
+	</message>
+	<message name="setTrayEditAccessResponse">
+		<part name="response"
+				element="tns:SetTrayEditAccessResponse"/>
+	</message>
+	<message name="getTrayStatusRequest">
+		<part name="request"
+				element="tns:GetTrayStatus"/>
+	</message>
+	<message name="getTrayStatusResponse">
+		<part name="response"
+				element="tns:GetTrayStatusResponse"/>
+	</message>
+	<message name="setDateTimeMessageRequest">
+		<part name="params"
+				element="tns:SetDateTime"/>
+	</message>
+	<message name="setDateTimeMessageResult">
+		<part name="result"
+				element="tns:SetDateTimeResult"/>
+	</message>
+	<message name="setBackUpMessageRequest">
+		<part name="params"
+				element="tns:SetBackUp"/>
+	</message>
+	<message name="setBackUpMessageResult">
+		<part name="result"
+				element="tns:BackUpResult"/>
+	</message>
+	<message name="getDVSStatusRequest">
+		<part name="params"
+				element="tns:GetDVSStatus"/>
+	</message>
+	<message name="getDVSStatusResponse">
+		<part name="result"
+				element="tns:DVSStatusResult"/>
+	</message>
+	<message name="CheckHealth">
+		<part name="params"
+				element="tns:CheckHealth"/>
+	</message>
+	<message name="CheckHealthResult">
+		<part name="result"
+				element="tns:CheckHealthResult"/>
+	</message>
+	<message name="getErrorLogListRequest">
+		<part name="params"
+				element="tns:GetErrorLogList"/>
+	</message>
+	<message name="getErrorLogListResponse">
+		<part name="result"
+				element="tns:GetErrorLogListResult"/>
+	</message>
+	<message name="getRequestStatusRequest">
+		<part name="params"
+				element="tns:GetRequestStatus"/>
+	</message>
+	<message name="getRequestStatusResponse">
+		<part name="result"
+				element="tns:OperationRequestStatus"/>
+	</message>
+	<message name="ResetErrorsRequest">
+		<part name="request"
+				element="tns:ResetErrors"/>
+	</message>
+	<message name="ResetErrorsResponse">
+		<part name="response"
+				element="tns:ResetErrorsResponse"/>
+	</message>
+	<message name="turnOnVisualStorageRequest">
+		<part name="params"
+				element="tns:TurnOnVisualStorage"/>
+	</message>
+	<message name="turnOffVisualStorageRequest">
+		<part name="params"
+				element="tns:TurnOffVisualStorage"/>
+	</message>
+	<message name="turnVisualStorageResponse">
+		<part name="result"
+				element="tns:OperationRequestStatus"/>
+	</message>
+	<portType name="UserService">
+		<operation name="uploadUserList">
+			<input name="uploadUserListRequest"
+					message="tns:uploadUserListRequest"/>
+			<output name="uploadUserListResponse"
+					message="tns:uploadUserListResponse"/>
+		</operation>
+		<operation name="getUserList">
+			<input name="getUserListRequest"
+					message="tns:getUserListRequest"/>
+			<output name="getUserListResponse"
+					message="tns:getUserListResponse"/>
+		</operation>
+		<operation name="getUserLogList">
+			<input name="getUserLogListRequest"
+					message="tns:getUserLogListRequest"/>
+			<output name="getUserLogListResponse"
+					message="tns:getUserLogListResponse"/>
+		</operation>
+	</portType>
+	<portType name="StorageService">
+		<operation name="uploadStorage">
+			<input name="uploadStorageRequest"
+					message="tns:uploadStorageRequest"/>
+			<output name="uploadStorageResponse"
+					message="tns:uploadStorageResponse"/>
+		</operation>
+		<operation name="getStorageList">
+			<input name="getStorageListRequest"
+					message="tns:getStorageListRequest"/>
+			<output name="getStorageListResponse"
+					message="tns:getStorageListResponse"/>
+		</operation>
+		<operation name="deleteStorage">
+			<input name="deleteStorageRequest"
+					message="tns:deleteStorageRequest"/>
+			<output name="deleteStorageResponse"
+					message="tns:deleteStorageResponse"/>
+		</operation>
+	</portType>
+	<portType name="ItemService">
+		<operation name="uploadItemList">
+			<input name="uploadItemListRequest"
+					message="tns:uploadItemListRequest"/>
+			<output name="uploadItemListResponse"
+					message="tns:uploadItemListResponse"/>
+		</operation>
+		<operation name="getItemList">
+			<input name="getItemListRequest"
+					message="tns:getItemListRequest"/>
+			<output name="getItemListResponse"
+					message="tns:getItemListResponse"/>
+		</operation>
+		<operation name="uploadItemStocks">
+			<input name="uploadItemStocksRequest"
+					message="tns:uploadItemStocksRequest"/>
+			<output name="uploadItemStocksResponse"
+					message="tns:uploadItemStocksResponse"/>
+		</operation>
+		<operation name="getStockBalances">
+			<input name="getStockBalancesRequest"
+					message="tns:getStockBalancesRequest"/>
+			<output name="getStockBalancesResponse"
+					message="tns:getStockBalancesResponse"/>
+		</operation>
+	</portType>
+	<portType name="OrderService">
+		<operation name="submitRetrievalOrders">
+			<input name="submitRetrievalOrdersRequest"
+					message="tns:submitRetrievalOrdersRequest"/>
+			<output name="submitRetrievalOrdersResponse"
+					message="tns:submitRetrievalOrdersResponse"/>
+		</operation>
+		<operation name="submitStorageOrders">
+			<input name="submitStorageOrdersRequest"
+					message="tns:submitStorageOrdersRequest"/>
+			<output name="submitStorageOrdersResponse"
+					message="tns:submitStorageOrdersResponse"/>
+		</operation>
+		<operation name="changeOrderStatus">
+			<input name="changeOrderStatusRequest"
+					message="tns:changeOrderStatusRequest"/>
+			<output name="changeOrderStatusResponse"
+					message="tns:changeOrderStatusResponse"/>
+		</operation>
+		<operation name="getOrderStatus">
+			<input name="getOrderStatusRequest"
+					message="tns:getOrderStatusRequest"/>
+			<output name="getOrderStatusResponse"
+					message="tns:getOrderStatusResponse"/>
+		</operation>
+	</portType>
+	<portType name="LedLineService">
+		<operation name="setRange">
+			<input name="setRangeRequest"
+					message="tns:setLedLineRangeRequest"/>
+			<output name="setRangeResponse"
+					message="tns:setLedLineRangeResponse"/>
+		</operation>
+		<operation name="clearRange">
+			<input name="clearRangeRequest"
+					message="tns:clearLedLineRangeRequest"/>
+			<output name="clearRangeResponse"
+					message="tns:clearLedLineRangeResponse"/>
+		</operation>
+	</portType>
+	<portType name="LedDisplayService">
+		<operation name="setMessage">
+			<input name="setMessageRequest"
+					message="tns:setLedDisplayMessageRequest"/>
+			<output name="setMessageResponse"
+					message="tns:setLedDisplayMessageResponse"/>
+		</operation>
+		<operation name="clearMessage">
+			<input name="clearMessageRequest"
+					message="tns:clearLedDisplayMessageRequest"/>
+			<output name="clearMessageResponse"
+					message="tns:clearLedDisplayMessageResponse"/>
+		</operation>
+	</portType>
+	<portType name="TrayService">
+		<operation name="getTray">
+			<input name="getTrayRequest"
+					message="tns:getTrayOperationRequest"/>
+			<output name="getTrayResponse"
+					message="tns:getTrayOperationResponse"/>
+		</operation>
+		<operation name="getTraySecure">
+			<input name="getTraySecureRequest"
+					message="tns:getTraySecureOperationRequest"/>
+			<output name="getTraySecureResponse"
+					message="tns:getTrayOperationResponse"/>
+		</operation>
+		<operation name="getTrayList">
+			<input name="getTrayListRequest"
+					message="tns:getTrayListRequest"/>
+			<output name="getTrayListResponse"
+					message="tns:getTrayListResponse"/>
+		</operation>
+		<operation name="returnTray">
+			<input name="returnTrayRequest"
+					message="tns:returnTrayOperationRequest"/>
+			<output name="returnTrayResponse"
+					message="tns:returnTrayOperationResponse"/>
+		</operation>
+		<operation name="returnTraySecure">
+			<input name="returnTraySecureRequest"
+					message="tns:returnTraySecureOperationRequest"/>
+			<output name="returnTraySecureResponse"
+					message="tns:returnTrayOperationResponse"/>
+		</operation>
+		<operation name="updateTrayInfoList">
+			<input name="updateTrayInfoListRequest"
+					message="tns:updateTrayInfoListRequest"/>
+			<output name="updateTrayInfoListResponse"
+					message="tns:updateTrayInfoListResponse"/>
+		</operation>
+		<operation name="setTrayEditAccess">
+			<input name="setTrayEditAccessRequest"
+					message="tns:setTrayEditAccessRequest"/>
+			<output name="setTrayEditAccessResponse"
+					message="tns:setTrayEditAccessResponse"/>
+		</operation>
+		<operation name="getTrayStatus">
+			<input name="getTrayStatusRequest"
+					message="tns:getTrayStatusRequest"/>
+			<output name="getTrayStatusResponse"
+					message="tns:getTrayStatusResponse"/>
+		</operation>
+	</portType>
+	<portType name="SystemService">
+		<operation name="getRequestStatus">
+			<input name="getRequestStatusRequest"
+					message="tns:getRequestStatusRequest"/>
+			<output name="getRequestStatusResponse"
+					message="tns:getRequestStatusResponse"/>
+		</operation>
+		<operation name="setDateTime">
+			<input name="setDateTimeRequest"
+					message="tns:setDateTimeMessageRequest"/>
+			<output name="setDateTimeResponse"
+					message="tns:setDateTimeMessageResult"/>
+		</operation>
+		<operation name="setBackUp">
+			<input name="setBackUpRequest"
+					message="tns:setBackUpMessageRequest"/>
+			<output name="setBackUpResponse"
+					message="tns:setBackUpMessageResult"/>
+		</operation>
+		<operation name="getDVSStatus">
+			<input name="getDVSStatusRequest"
+					message="tns:getDVSStatusRequest"/>
+			<output name="getDVSStatusResponse"
+					message="tns:getDVSStatusResponse"/>
+		</operation>
+		<operation name="checkHealth">
+			<input name="checkHealthRequest"
+					message="tns:CheckHealth"/>
+			<output name="checkHealthResponse"
+					message="tns:CheckHealthResult"/>
+		</operation>
+		<operation name="getErrorLogList">
+			<input name="getErrorLogListRequest"
+					message="tns:getErrorLogListRequest"/>
+			<output name="getErrorLogListResponse"
+					message="tns:getErrorLogListResponse"/>
+		</operation>
+		<operation name="resetErrors">
+			<input name="resetErrorsRequest"
+					message="tns:ResetErrorsRequest"/>
+			<output name="resetErrorsResponse"
+					message="tns:ResetErrorsResponse"/>
+		</operation>
+	</portType>
+	<portType name="ShowStorageService">
+		<operation name="turnOnVisualStorage">
+			<input name="turnOnVisualStorageRequest"
+					message="tns:turnOnVisualStorageRequest"/>
+			<output name="turnOnVisualStorageResponse"
+					message="tns:turnVisualStorageResponse"/>
+		</operation>
+		<operation name="turnOffVisualStorage">
+			<input name="turnOffVisualStorageRequest"
+					message="tns:turnOffVisualStorageRequest"/>
+			<output name="turnOffVisualStorageResponse"
+					message="tns:turnVisualStorageResponse"/>
+		</operation>
+	</portType>
+	<binding name="UserService"
+			type="tns:UserService">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="uploadUserList">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/UserService/UploadUserList"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getUserList">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/UserService/GetUserList"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getUserLogList">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/UserService/GetUserLogList"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="StorageService"
+			type="tns:StorageService">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="uploadStorage">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/StorageService/UploadStorage"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getStorageList">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/StorageService/GetStorageList"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="deleteStorage">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/StorageService/DeleteStorage"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="ItemService"
+			type="tns:ItemService">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="uploadItemList">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/ItemService/UploadItemList"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getItemList">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/ItemService/GetItemList"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="uploadItemStocks">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/ItemService/UploadStocksList"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getStockBalances">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/ItemService/GetStockBalances"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="OrderService"
+			type="tns:OrderService">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="submitRetrievalOrders">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/OrderService/RetrieveOrdersList"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="submitStorageOrders">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/OrderService/StorageOrdersList"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="changeOrderStatus">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/OrderService/OrderStatusChange"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getOrderStatus">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/OrderService/GetOrderStatus"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="LedLineService"
+			type="tns:LedLineService">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="setRange">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/LedLineService/SetLedLineRange"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="clearRange">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/LedLineService/ClearLedLineRange"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="LedDisplayService"
+			type="tns:LedDisplayService">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="setMessage">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/LedDisplayService/SetLedDisplayMessage"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="clearMessage">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/LedDisplayService/ClearLedDisplayMessage"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="TrayService"
+			type="tns:TrayService">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="getTray">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/TrayService/GetTray"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getTraySecure">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/TrayService/GetTraySecure"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getTrayList">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/TrayService/GetTrayList"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="returnTray">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/TrayService/ReturnTray"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="returnTraySecure">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/TrayService/ReturnTraySecure"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="updateTrayInfoList">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/TrayService/UpdateTrayInfoList"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="setTrayEditAccess">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/TrayService/SetTrayEditAccess"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getTrayStatus">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/TrayService/GetTrayStatus"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="SystemService"
+			type="tns:SystemService">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="getRequestStatus">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/TrayService/GetTrayRequestStatus"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="setDateTime">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/SystemService/SetDateTime"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="setBackUp">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/SystemService/SetBackUp"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getDVSStatus">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/SystemService/GetDVSStatus"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="checkHealth">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/SystemService/CheckHealth"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="getErrorLogList">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/SystemService/getErrorLogList"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="resetErrors">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/SystemService/ResetErrors"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="ShowStorageService"
+			type="tns:ShowStorageService">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="turnOnVisualStorage">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/ShowStorageService/TurnOnVisualStorage"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="turnOffVisualStorage">
+			<soapbind:operation style="document"
+					soapAction="http://www.dikom.ru/lift/integration/services/ShowStorageService/TurnOffVisualStorage"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="UserService">
+		<port name="UserService"
+				binding="tns:UserService">
+			<soapbind:address location="http://37.29.67.47:9092/lift/integration/services/UserService/"/>
+		</port>
+	</service>
+	<service name="StorageService">
+		<port name="StorageService"
+				binding="tns:StorageService">
+			<soapbind:address location="http://37.29.67.47:9092/lift/integration/services/StorageService/"/>
+		</port>
+	</service>
+	<service name="ItemService">
+		<port name="ItemService"
+				binding="tns:ItemService">
+			<soapbind:address location="http://37.29.67.47:9092/lift/integration/services/ItemService/"/>
+		</port>
+	</service>
+	<service name="OrderService">
+		<port name="OrderService"
+				binding="tns:OrderService">
+			<soapbind:address location="http://37.29.67.47:9092/lift/integration/services/OrderService/"/>
+		</port>
+	</service>
+	<service name="LedLineService">
+		<port name="LedLineService"
+				binding="tns:LedLineService">
+			<soapbind:address location="http://37.29.67.47:9092/lift/integration/services/LedLineService/"/>
+		</port>
+	</service>
+	<service name="LedDisplayService">
+		<port name="LedDisplayService"
+				binding="tns:LedDisplayService">
+			<soapbind:address location="http://37.29.67.47:9092/lift/integration/services/LedDisplayService/"/>
+		</port>
+	</service>
+	<service name="TrayService">
+		<port name="TrayService"
+				binding="tns:TrayService">
+			<soapbind:address location="http://37.29.67.47:9092/lift/integration/services/TrayService/"/>
+		</port>
+	</service>
+	<service name="SystemService">
+		<port name="SystemService"
+				binding="tns:SystemService">
+			<soapbind:address location="http://37.29.67.47:9092/lift/integration/services/SystemService/"/>
+		</port>
+	</service>
+	<service name="ShowStorageService">
+		<port name="ShowStorageService"
+				binding="tns:ShowStorageService">
+			<soapbind:address location="http://37.29.67.47:9092/lift/integration/services/ShowStorageService/"/>
+		</port>
+	</service>
+</definitions>

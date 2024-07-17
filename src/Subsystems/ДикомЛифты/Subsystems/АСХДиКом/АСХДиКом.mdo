@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Subsystem xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="dc015918-f22d-43ce-88aa-c2e5227d0586">
+  <name>АСХДиКом</name>
+  <synonym>
+    <key>ru</key>
+    <value>АСХ ДиКом</value>
+  </synonym>
+  <includeHelpInContents>true</includeHelpInContents>
+  <content>CommonModule.дкл_Логи</content>
+  <content>CommonModule.дкл_ОбменДаннымиСервер</content>
+  <content>CommonModule.дкл_Обработчики</content>
+  <content>CommonModule.дкл_ОбработчикиСобытий</content>
+  <content>CommonModule.дкл_ОбщегоНазначенияПовтИсп</content>
+  <content>CommonModule.дкл_ОбщегоНазначенияСервер</content>
+  <content>CommonModule.дкл_ОбщегоНазначенияВызовСервера</content>
+  <content>Role.дкл_ws</content>
+  <content>Role.дкл_Администратор</content>
+  <content>Role.дкл_Оператор</content>
+  <content>Role.дкл_ОсновнаяРоль</content>
+  <content>FunctionalOption.дкл_ИспользоватьХарактеристики</content>
+  <content>FunctionalOption.дкл_ИспользоватьУпаковки</content>
+  <content>FunctionalOption.дкл_АвтодобавлениеНоменклатуры</content>
+  <content>CommonPicture.Внимание16</content>
+  <content>CommonPicture.ПодчиненныйЭлементГруппа</content>
+  <content>CommonPicture.дкл_СостоянияПроверки</content>
+  <content>CommonPicture.дкл_СостояниеРассылкиОтчетов</content>
+  <content>XDTOPackage.DikomLift</content>
+  <content>Catalog.дкл_НастройкиСкладовЛифтов</content>
+  <content>Enum.дкл_СостоянияПолок</content>
+  <content>InformationRegister.дкл_Обработки</content>
+  <content>InformationRegister.дкл_ОчередьСообщений</content>
+  <content>InformationRegister.дкл_Полки</content>
+  <content>InformationRegister.дкл_СостояниеПолки</content>
+  <content>InformationRegister.дкл_СтатусыСкладовЛифтов</content>
+  <content>InformationRegister.дкл_СкладскиеЯчейки</content>
+  <parentSubsystem>Subsystem.ДикомЛифты</parentSubsystem>
+</mdclass:Subsystem>

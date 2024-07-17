@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Subsystem xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="fcf9f411-db2b-4491-b94d-ff84b81c7b13">
+  <name>Версия_15</name>
+  <synonym>
+    <key>ru</key>
+    <value>Версия 1.5</value>
+  </synonym>
+  <includeHelpInContents>true</includeHelpInContents>
+  <includeInCommandInterface>true</includeInCommandInterface>
+  <parentSubsystem>Subsystem.ДикомЛифты</parentSubsystem>
+</mdclass:Subsystem>

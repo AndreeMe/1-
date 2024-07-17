@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:WebService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="2a2a76d9-6f61-48be-97b5-060bce34bada">
+  <name>OrderService</name>
+  <synonym>
+    <key>ru</key>
+    <value>OrderService</value>
+  </synonym>
+  <namespace>http://www.dikom.ru/erp/lift/</namespace>
+  <xdtoPackages xsi:type="core:ReferenceValue">
+    <value>XDTOPackage.DikomLift</value>
+  </xdtoPackages>
+  <descriptorFileName>OrderService.1cws</descriptorFileName>
+  <reuseSessions>AutoUse</reuseSessions>
+  <sessionMaxAge>20</sessionMaxAge>
+  <operations uuid="3887dcb6-db2f-45a7-8b14-f7de31a6ea1b">
+    <name>submitOrder</name>
+    <synonym>
+      <key>ru</key>
+      <value>submitOrder</value>
+    </synonym>
+    <xdtoReturningValueType>
+      <name>boolean</name>
+      <nsUri>http://www.w3.org/2001/XMLSchema</nsUri>
+    </xdtoReturningValueType>
+    <procedureName>submitOrder</procedureName>
+    <dataLockControlMode>Managed</dataLockControlMode>
+    <parameters uuid="42006ab7-5ed5-4a2c-a18b-449b20dfceaa">
+      <name>machineId</name>
+      <synonym>
+        <key>ru</key>
+        <value>machineId</value>
+      </synonym>
+      <xdtoValueType>
+        <name>string</name>
+        <nsUri>http://www.w3.org/2001/XMLSchema</nsUri>
+      </xdtoValueType>
+    </parameters>
+    <parameters uuid="62acb1f2-b7aa-4093-8dbd-fe5a086d085f">
+      <name>order</name>
+      <synonym>
+        <key>ru</key>
+        <value>order</value>
+      </synonym>
+      <xdtoValueType>
+        <name>Order</name>
+        <nsUri>http://www.dikom.ru/erp/lift/</nsUri>
+      </xdtoValueType>
+    </parameters>
+  </operations>
+</mdclass:WebService>

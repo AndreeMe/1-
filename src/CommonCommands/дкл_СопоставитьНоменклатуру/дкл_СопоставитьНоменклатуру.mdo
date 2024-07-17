@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonCommand xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="cab43965-5e0e-4b1a-b684-ff195893280d">
+  <name>дкл_СопоставитьНоменклатуру</name>
+  <synonym>
+    <key>ru</key>
+    <value>Сопоставить номенклатуру</value>
+  </synonym>
+  <group>CommandGroup.дкл_Дополнительно</group>
+  <commandParameterType>
+    <types>CatalogRef.дкл_НастройкиСкладовЛифтов</types>
+  </commandParameterType>
+  <representation>Auto</representation>
+</mdclass:CommonCommand>

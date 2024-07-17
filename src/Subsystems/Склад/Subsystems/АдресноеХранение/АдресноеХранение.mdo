@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Subsystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" xmlns:mdclassExtension="http://g5.1c.ru/v8/dt/metadata/mdclass/extension" uuid="be9097e0-fb24-4a71-ad10-308ff5f8eda6" extendedConfigurationObject="b5eb3009-eab6-4ee1-ab2e-29cb739c02fc">
+  <name>АдресноеХранение</name>
+  <objectBelonging>Adopted</objectBelonging>
+  <extension xsi:type="mdclassExtension:SubsystemExtension">
+    <extendedConfigurationObject>Checked</extendedConfigurationObject>
+  </extension>
+  <content>Document.ОтборРазмещениеТоваров</content>
+  <content>InformationRegister.дкл_СтатусыДокументов</content>
+  <parentSubsystem>Subsystem.Склад</parentSubsystem>
+</mdclass:Subsystem>

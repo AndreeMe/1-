@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="3a6417bf-cd3f-4a86-8ab8-34548a28d068">
+  <producedTypes>
+    <selectionType typeId="2f35566a-f141-4582-bb14-1b60569d70cc" valueTypeId="33601a53-e119-48b9-a1db-dd6c6c23bf94"/>
+    <listType typeId="c876c8fe-da20-4322-9b10-e2e39613c366" valueTypeId="5359f8f0-3d94-46a8-8aeb-c96c24a8b648"/>
+    <managerType typeId="6d5b123c-103e-4ec9-b85e-470be7f1cfd4" valueTypeId="6ab8a76e-7670-4e47-bd15-8629719d4238"/>
+    <recordSetType typeId="f1d3c1fe-1f9c-44f6-80e9-b5f439f75806" valueTypeId="a408725b-8406-48cf-a508-049ea5609076"/>
+    <recordKeyType typeId="8deb65f9-da0b-4cd5-b00e-59934c12f42a" valueTypeId="bf3517b9-9442-489f-be80-9ea78133578c"/>
+    <recordType typeId="78fd2c92-ac44-4f67-ad6b-74eaaa628a74" valueTypeId="59395aa0-bbc3-408d-bb41-8b3aea48e86d"/>
+    <recordManagerType typeId="27a2fc6e-7ece-4879-b3f6-f5abb5ad96c0" valueTypeId="dd126f5b-fd10-46e9-9ba4-18fda49329f1"/>
+  </producedTypes>
+  <name>дкл_СтатусыДокументов</name>
+  <synonym>
+    <key>ru</key>
+    <value>Статусы документов</value>
+  </synonym>
+  <editType>InDialog</editType>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Active</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>LineNumber</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Recorder</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Period</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="76633a34-5223-4739-ad51-13fcfc58bdb4">
+    <name>Статус</name>
+    <synonym>
+      <key>ru</key>
+      <value>Статус</value>
+    </synonym>
+    <type>
+      <types>EnumRef.дкл_СтатусыДокументов</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <attributes uuid="99dd1ef6-042b-475d-83b6-2393f555f423">
+    <name>Дата</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <dimensions uuid="27ecb922-9bde-4d9f-a24e-e6113d703e30">
+    <name>Объект</name>
+    <synonym>
+      <key>ru</key>
+      <value>Объект</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.ОтборРазмещениеТоваров</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

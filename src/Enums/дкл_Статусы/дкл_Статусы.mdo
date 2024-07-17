@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Enum xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="29d5d3b8-4a74-4267-920f-aa0c94fa3da1">
+  <producedTypes>
+    <refType typeId="fcea0e4b-2374-4592-b39d-96ec24d8de21" valueTypeId="8d3618ca-cd7e-4fe2-8302-767677cb7bca"/>
+    <listType typeId="b995a592-a4fb-404a-b8b5-5c0e033272c8" valueTypeId="fe207711-b53f-43a9-b97b-ef5172673457"/>
+    <managerType typeId="517dc11b-f833-47fb-addc-140c9467cc34" valueTypeId="a37fc6db-7010-4aff-9934-0356ff0c3887"/>
+  </producedTypes>
+  <name>дкл_Статусы</name>
+  <synonym>
+    <key>ru</key>
+    <value>Статусы</value>
+  </synonym>
+  <quickChoice>true</quickChoice>
+  <choiceMode>BothWays</choiceMode>
+  <enumValues uuid="36ab2f2e-4e6c-442e-8d82-6c13a6f1a4d1">
+    <name>Изменено</name>
+    <synonym>
+      <key>ru</key>
+      <value>Изменено</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="11f7be77-ea04-4ff9-8ba5-90d67d1013bb">
+    <name>Отправлено</name>
+    <synonym>
+      <key>ru</key>
+      <value>Отправлено в АСХ</value>
+    </synonym>
+  </enumValues>
+</mdclass:Enum>

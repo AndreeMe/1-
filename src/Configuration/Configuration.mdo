@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" xmlns:mdclassExtension="http://g5.1c.ru/v8/dt/metadata/mdclass/extension" uuid="f3e7be3a-1e18-461a-9d19-1b33cba052cb">
+  <name>АСХДиКом</name>
+  <synonym>
+    <key>ru</key>
+    <value>АСХ ДиКом 1.03</value>
+  </synonym>
+  <comment>необходима платформа 8.3.23 и выше</comment>
+  <objectBelonging>Adopted</objectBelonging>
+  <extension xsi:type="mdclassExtension:ConfigurationExtension">
+    <defaultRunMode>Checked</defaultRunMode>
+    <usePurposes>Checked</usePurposes>
+    <defaultLanguage>Checked</defaultLanguage>
+    <interfaceCompatibilityMode>Checked</interfaceCompatibilityMode>
+  </extension>
+  <containedObjects classId="9cd510cd-abfc-11d4-9434-004095e12fc7" objectId="6a9d897f-3465-46c1-84ae-23c414ff46ec"/>
+  <containedObjects classId="9fcd25a0-4822-11d4-9414-008048da11f9" objectId="5cf089e8-3862-4faf-8124-9e709b35b96b"/>
+  <containedObjects classId="e3687481-0a87-462c-a166-9f34594f9bba" objectId="86c37ac2-a750-4cf9-abe9-d306449745b2"/>
+  <containedObjects classId="9de14907-ec23-4a07-96f0-85521cb6b53b" objectId="de2500ff-6052-40bc-929d-40c378ae9d77"/>
+  <containedObjects classId="51f2d5d8-ea4d-4064-8892-82951750031e" objectId="0cf905bb-0e24-4f2a-b355-dafb832295ea"/>
+  <containedObjects classId="e68182ea-4237-4383-967f-90c1e3370bc7" objectId="dc56b064-981f-4ab6-854f-7cf8d5c635ac"/>
+  <containedObjects classId="fb282519-d103-4dd3-bc12-cb271d631dfc" objectId="ca771db3-a89b-43b9-864c-699073b749a5"/>
+  <keepMappingToExtendedConfigurationObjectsByIDs>true</keepMappingToExtendedConfigurationObjectsByIDs>
+  <namePrefix>дкл_</namePrefix>
+  <configurationExtensionCompatibilityMode>8.3.17</configurationExtensionCompatibilityMode>
+  <configurationExtensionPurpose>AddOn</configurationExtensionPurpose>
+  <defaultRunMode>ManagedApplication</defaultRunMode>
+  <usePurposes>PersonalComputer</usePurposes>
+  <scriptVariant>Russian</scriptVariant>
+  <vendor>ООО &quot;Диком-Сервис&quot;</vendor>
+  <version>1.0.3.20240624</version>
+  <defaultLanguage>Language.Русский</defaultLanguage>
+  <briefInformation>
+    <key>ru</key>
+    <value>АСХ ДиКом</value>
+  </briefInformation>
+  <detailedInformation>
+    <key>ru</key>
+    <value>&quot;Автоматизированная система хранения&quot; ДиКом</value>
+  </detailedInformation>
+  <copyright>
+    <key>ru</key>
+    <value>ООО &quot;Диком-Сервис&quot;</value>
+  </copyright>
+  <interfaceCompatibilityMode>TaxiEnableVersion8_2</interfaceCompatibilityMode>
+  <compatibilityMode>8.3.24</compatibilityMode>
+  <languages uuid="91708e2b-a7db-40cb-9397-c4f36a6fad1a" extendedConfigurationObject="0663bf5b-bcba-4a40-a862-a0b3baa2d884">
+    <name>Русский</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:LanguageExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <languageCode>Checked</languageCode>
+    </extension>
+    <languageCode>ru</languageCode>
+  </languages>
+  <subsystems>Subsystem.ДикомЛифты</subsystems>
+  <subsystems>Subsystem.Склад</subsystems>
+  <styleItems>StyleItem.ПоясняющийТекст</styleItems>
+  <commonPictures>CommonPicture.Внимание16</commonPictures>
+  <commonPictures>CommonPicture.дкл_Желтый</commonPictures>
+  <commonPictures>CommonPicture.дкл_Зеленый</commonPictures>
+  <commonPictures>CommonPicture.дкл_КоллекцияИндикаторов</commonPictures>
+  <commonPictures>CommonPicture.дкл_Красный</commonPictures>
+  <commonPictures>CommonPicture.дкл_Серый</commonPictures>
+  <commonPictures>CommonPicture.дкл_СостояниеРассылкиОтчетов</commonPictures>
+  <commonPictures>CommonPicture.дкл_СостоянияПроверки</commonPictures>
+  <commonPictures>CommonPicture.ЗаполнитьПоШаблону</commonPictures>
+  <commonPictures>CommonPicture.ЗаполнитьФорму</commonPictures>
+  <commonPictures>CommonPicture.Отчеты</commonPictures>
+  <commonPictures>CommonPicture.ПодчиненныйЭлементГруппа</commonPictures>
+  <roles>Role.дкл_ws</roles>
+  <roles>Role.дкл_Администратор</roles>
+  <roles>Role.дкл_Оператор</roles>
+  <roles>Role.дкл_ОсновнаяРоль</roles>
+  <roles>Role.дкл_АдресныеСклады</roles>
+  <commonModules>CommonModule.дкл_ИнтерфейсСервер</commonModules>
+  <commonModules>CommonModule.дкл_Логи</commonModules>
+  <commonModules>CommonModule.дкл_ОбменДаннымиСервер</commonModules>
+  <commonModules>CommonModule.дкл_Обработчики</commonModules>
+  <commonModules>CommonModule.дкл_ОбработчикиСобытий</commonModules>
+  <commonModules>CommonModule.дкл_ОбщегоНазначенияВызовСервера</commonModules>
+  <commonModules>CommonModule.дкл_ОбщегоНазначенияПовтИсп</commonModules>
+  <commonModules>CommonModule.дкл_ОбщегоНазначенияСервер</commonModules>
+  <commonModules>CommonModule.дкл_ФормыВызовСервера</commonModules>
+  <commonModules>CommonModule.дкл_ФормыКлиент</commonModules>
+  <commonModules>CommonModule.дкл_ФормыСервер</commonModules>
+  <commonModules>CommonModule.дкл_Коннектор</commonModules>
+  <xDTOPackages>XDTOPackage.DikomLift</xDTOPackages>
+  <xDTOPackages>XDTOPackage.дкл_ПакетXDTO1</xDTOPackages>
+  <webServices>WebService.OrderService</webServices>
+  <wsReferences>WSReference.ExternalIntegration_16</wsReferences>
+  <wsReferences>WSReference.ExternalIntegration_21</wsReferences>
+  <functionalOptions>FunctionalOption.дкл_ИспользоватьХарактеристики</functionalOptions>
+  <functionalOptions>FunctionalOption.дкл_ИспользоватьУпаковки</functionalOptions>
+  <functionalOptions>FunctionalOption.дкл_АвтодобавлениеНоменклатуры</functionalOptions>
+  <functionalOptions>FunctionalOption.дкл_АвтопереводОрдеровВСтатусReady</functionalOptions>
+  <functionalOptions>FunctionalOption.дкл_ВключитьУправлениеПолкамиВДокументах</functionalOptions>
+  <functionalOptions>FunctionalOption.дкл_ИспользуетсяТСДСклад15ДляОтборов</functionalOptions>
+  <definedTypes>DefinedType.ФизическоеЛицо</definedTypes>
+  <definedTypes>DefinedType.ОтправительПолучательТоваров</definedTypes>
+  <commonCommands>CommonCommand.дкл_СопоставитьНоменклатуру</commonCommands>
+  <commonCommands>CommonCommand.дкл_Настройки</commonCommands>
+  <commandGroups>CommandGroup.дкл_Печать</commandGroups>
+  <commandGroups>CommandGroup.дкл_Дополнительно</commandGroups>
+  <constants>Constant.дкл_ВключитьУправлениеПолкамиВДокументах</constants>
+  <constants>Constant.дкл_ИспользуетсяТСДСклад15ДляОтборов</constants>
+  <constants>Constant.дкл_ТаймаутСоединения</constants>
+  <commonForms>CommonForm.дкл_ФормаКонстант</commonForms>
+  <catalogs>Catalog.дкл_НастройкиСкладовЛифтов</catalogs>
+  <catalogs>Catalog.Номенклатура</catalogs>
+  <catalogs>Catalog.Пользователи</catalogs>
+  <catalogs>Catalog.СкладскиеЯчейки</catalogs>
+  <catalogs>Catalog.Склады</catalogs>
+  <catalogs>Catalog.УпаковкиЕдиницыИзмерения</catalogs>
+  <catalogs>Catalog.ХарактеристикиНоменклатуры</catalogs>
+  <documents>Document.ОтборРазмещениеТоваров</documents>
+  <enums>Enum.ВидыОперацийОтбораРазмещенияТоваров</enums>
+  <enums>Enum.дкл_ВидыАСХ</enums>
+  <enums>Enum.дкл_НаправлениеСообщения</enums>
+  <enums>Enum.дкл_РолиПользователей</enums>
+  <enums>Enum.дкл_СостоянияПолок</enums>
+  <enums>Enum.дкл_Статусы</enums>
+  <enums>Enum.дкл_СтатусыДокументов</enums>
+  <enums>Enum.дкл_ТипыСообщений</enums>
+  <enums>Enum.ВариантыИспользованияПериодическойИнвентаризацииЯчеек</enums>
+  <enums>Enum.дкл_СпособПодключения</enums>
+  <dataProcessors>DataProcessor.ExternalIntegration_v16</dataProcessors>
+  <dataProcessors>DataProcessor.ExternalIntegration_v21</dataProcessors>
+  <dataProcessors>DataProcessor.ExternalIntegration_v21_HTTP</dataProcessors>
+  <dataProcessors>DataProcessor.дкл_СравнитьВебСервисы</dataProcessors>
+  <informationRegisters>InformationRegister.дкл_НоменклатураСкладов</informationRegisters>
+  <informationRegisters>InformationRegister.дкл_Обработки</informationRegisters>
+  <informationRegisters>InformationRegister.дкл_ОчередьСообщений</informationRegisters>
+  <informationRegisters>InformationRegister.дкл_ПользователиСкладов</informationRegisters>
+  <informationRegisters>InformationRegister.дкл_Полки</informationRegisters>
+  <informationRegisters>InformationRegister.дкл_СкладскиеЯчейки</informationRegisters>
+  <informationRegisters>InformationRegister.дкл_СостояниеПолки</informationRegisters>
+  <informationRegisters>InformationRegister.дкл_СтатусыДокументов</informationRegisters>
+  <informationRegisters>InformationRegister.дкл_СтатусыСкладовЛифтов</informationRegisters>
+  <accumulationRegisters>AccumulationRegister.ТоварыНаСкладах</accumulationRegisters>
+</mdclass:Configuration>

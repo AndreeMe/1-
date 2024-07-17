@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Subsystem xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="220cc67c-05af-4057-92a5-3f18510c53e9">
+  <name>Версия_25</name>
+  <synonym>
+    <key>ru</key>
+    <value>Версия 2.5</value>
+  </synonym>
+  <includeHelpInContents>true</includeHelpInContents>
+  <parentSubsystem>Subsystem.ДикомЛифты</parentSubsystem>
+</mdclass:Subsystem>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Subsystem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="6ca447c7-0e3b-42c5-be21-7a0259863d95">
+  <name>ДикомЛифты</name>
+  <synonym>
+    <key>ru</key>
+    <value>АСХ ДиКом 1.03</value>
+  </synonym>
+  <includeHelpInContents>true</includeHelpInContents>
+  <includeInCommandInterface>true</includeInCommandInterface>
+  <picture xsi:type="core:PictureRef">
+    <picture>StdPicture.InputFieldOpen</picture>
+  </picture>
+  <content>Catalog.дкл_НастройкиСкладовЛифтов</content>
+  <content>InformationRegister.дкл_НоменклатураСкладов</content>
+  <content>Enum.дкл_Статусы</content>
+  <content>Enum.дкл_РолиПользователей</content>
+  <content>InformationRegister.дкл_ОчередьСообщений</content>
+  <content>Enum.дкл_ТипыСообщений</content>
+  <content>InformationRegister.дкл_Обработки</content>
+  <content>WebService.OrderService</content>
+  <content>InformationRegister.дкл_ПользователиСкладов</content>
+  <content>FunctionalOption.дкл_ИспользоватьХарактеристики</content>
+  <content>FunctionalOption.дкл_ИспользоватьУпаковки</content>
+  <content>FunctionalOption.дкл_АвтодобавлениеНоменклатуры</content>
+  <content>FunctionalOption.дкл_АвтопереводОрдеровВСтатусReady</content>
+  <content>InformationRegister.дкл_СостояниеПолки</content>
+  <content>Enum.дкл_СостоянияПолок</content>
+  <content>InformationRegister.дкл_Полки</content>
+  <content>FunctionalOption.дкл_ВключитьУправлениеПолкамиВДокументах</content>
+  <content>CommonCommand.дкл_Настройки</content>
+  <content>CommonModule.дкл_ФормыКлиент</content>
+  <content>InformationRegister.дкл_СтатусыДокументов</content>
+  <content>Enum.дкл_ВидыАСХ</content>
+  <content>Enum.дкл_СпособПодключения</content>
+  <subsystems>АСХДиКом</subsystems>
+  <subsystems>Версия_15</subsystems>
+  <subsystems>Версия_25</subsystems>
+</mdclass:Subsystem>

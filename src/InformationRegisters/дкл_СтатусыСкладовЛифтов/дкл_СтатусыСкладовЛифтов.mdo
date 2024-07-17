@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="3b376e73-555a-4582-9eb4-f75bdcc70d2a">
+  <producedTypes>
+    <selectionType typeId="5a0a319a-eb24-465d-87af-d1b2683afb81" valueTypeId="53ca3a6e-cf4b-42d8-bbdd-fd9ea1bf4fb6"/>
+    <listType typeId="9fc34ef8-a21b-4b49-9578-3f2b2c1a449c" valueTypeId="a49ab1db-fcf7-4a5c-8a16-83cb36ab4f0d"/>
+    <managerType typeId="f978293a-f72c-4ac7-8168-92ce42892603" valueTypeId="5c85e590-bf00-4785-936f-ef75089fd9bd"/>
+    <recordSetType typeId="752966ed-8da7-4589-8af4-8af4aac344c0" valueTypeId="fb013d36-804c-4863-84ab-1469e1e79fba"/>
+    <recordKeyType typeId="4de83d84-4506-4521-aa7c-2f82f02aba76" valueTypeId="e7885f2d-bed8-4112-8026-899152dcc499"/>
+    <recordType typeId="e0af04e1-93df-438f-a9d4-6a8db1817502" valueTypeId="732cfa92-fe6c-4d0b-9026-512cfd0d71a4"/>
+    <recordManagerType typeId="ddd59d75-f353-4f2c-bebc-b1b767fdb88c" valueTypeId="0e1289f6-b158-4929-96f8-5197e82b114b"/>
+  </producedTypes>
+  <name>дкл_СтатусыСкладовЛифтов</name>
+  <synonym>
+    <key>ru</key>
+    <value>Статусы складов лифтов</value>
+  </synonym>
+  <editType>InDialog</editType>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <resources uuid="2fd02b7d-6cc1-406a-90d6-67ac97e9c84d">
+    <name>НомерСтатуса</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номер статуса</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>1</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="abf3e54e-5ccb-456f-a19f-f10cb30e242f">
+    <name>ВерсияПО</name>
+    <synonym>
+      <key>ru</key>
+      <value>Версия ПО</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>50</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+  </resources>
+  <resources uuid="faa438e9-7926-4d9e-90cd-18f419b7fc03">
+    <name>Статус</name>
+    <synonym>
+      <key>ru</key>
+      <value>Статус</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>100</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+  </resources>
+  <resources uuid="2f930b8a-f4cf-4df0-9093-18c7939c4be3">
+    <name>БуквенныйКод</name>
+    <synonym>
+      <key>ru</key>
+      <value>Буквенный код</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>3</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:StringValue">
+      <value></value>
+    </fillValue>
+  </resources>
+  <dimensions uuid="fb3a3e71-54e9-41ff-a539-c43ad306e41e">
+    <name>НастройкаСкладаЛифта</name>
+    <synonym>
+      <key>ru</key>
+      <value>Настройка склада лифта</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.дкл_НастройкиСкладовЛифтов</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+</mdclass:InformationRegister>

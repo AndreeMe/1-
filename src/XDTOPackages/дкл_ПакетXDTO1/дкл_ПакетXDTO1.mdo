@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:XDTOPackage xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="b83ed95f-9620-4f5f-ae67-ff8e13b37a35">
+  <name>дкл_ПакетXDTO1</name>
+  <namespace>http://www.dikom.ru/lift/integration/services/</namespace>
+</mdclass:XDTOPackage>

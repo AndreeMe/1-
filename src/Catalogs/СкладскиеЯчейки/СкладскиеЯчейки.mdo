@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" xmlns:mdclassExtension="http://g5.1c.ru/v8/dt/metadata/mdclass/extension" uuid="8db960ea-c960-4d61-95db-1a984411d9f9" extendedConfigurationObject="45fc64e2-aecd-481a-bcbe-307fcba05f97">
+  <producedTypes>
+    <objectType typeId="ddb885f1-510a-40e8-aa78-874074c3bb62" valueTypeId="41552838-8fbf-413f-aa92-64f382e01fa7"/>
+    <refType typeId="701d4e29-89ef-4af1-85c2-8f735c4f3bda" valueTypeId="caf7dd08-145c-469b-a997-cd89a7981013"/>
+    <selectionType typeId="6496c4bf-8e71-4c30-aaea-edc684716afa" valueTypeId="1f4c2c34-feda-4fa4-8e1e-9fae95d42c83"/>
+    <listType typeId="7bdb5326-027b-4958-ac77-d373fbc9d488" valueTypeId="aec44e5d-a541-4b6d-97db-0307919603ec"/>
+    <managerType typeId="6d1ccca3-6f7e-4f50-8f6f-15c1fadd6bdc" valueTypeId="4999041e-9cfe-4bc5-b452-9245ed02f319"/>
+  </producedTypes>
+  <name>СкладскиеЯчейки</name>
+  <objectBelonging>Adopted</objectBelonging>
+  <extension xsi:type="mdclassExtension:CatalogExtension">
+    <extendedConfigurationObject>Checked</extendedConfigurationObject>
+    <managerModule>Extended</managerModule>
+    <hierarchical>Checked</hierarchical>
+    <owners>Checked</owners>
+    <codeLength>Extended</codeLength>
+    <codeAllowedLength>Checked</codeAllowedLength>
+    <descriptionLength>Extended</descriptionLength>
+    <codeType>Extended</codeType>
+  </extension>
+  <hierarchical>true</hierarchical>
+  <owners>Catalog.Склады</owners>
+  <codeLength>19</codeLength>
+  <descriptionLength>50</descriptionLength>
+  <codeType>String</codeType>
+  <codeAllowedLength>Variable</codeAllowedLength>
+  <attributes uuid="a3b87bb3-4e07-42de-abce-20cc4bde5fd1" extendedConfigurationObject="a5ca5828-4e29-461b-885b-7139ab2b8f0d">
+    <name>Стеллаж</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>String</type>
+        </types>
+        <stringQualifiers>
+          <length>5</length>
+        </stringQualifiers>
+      </typeExtension>
+    </extension>
+    <type/>
+  </attributes>
+  <attributes uuid="4484c5bf-2119-4cbf-abb4-68be903d07d1" extendedConfigurationObject="ea064545-91fd-46da-987c-a068e1b5f13f">
+    <name>Ярус</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>String</type>
+        </types>
+        <stringQualifiers>
+          <length>3</length>
+        </stringQualifiers>
+      </typeExtension>
+    </extension>
+    <type/>
+  </attributes>
+  <attributes uuid="1338beab-70f3-4358-b98f-adf22f2556fe" extendedConfigurationObject="c4e170cc-c732-4607-8975-9c5a1ff87d55">
+    <name>Линия</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <typeExtension>
+        <types>
+          <state>Checked</state>
+          <type>String</type>
+        </types>
+        <stringQualifiers>
+          <length>3</length>
+        </stringQualifiers>
+      </typeExtension>
+    </extension>
+    <type/>
+  </attributes>
+  <attributes uuid="414d8d4d-1672-4c73-8f92-c558c10a2fa1">
+    <name>дкл_КоординатаХНижнегоКрая</name>
+    <synonym>
+      <key>ru</key>
+      <value>Координата Х нижнего края, мм</value>
+    </synonym>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <synonym>Extended</synonym>
+    </extension>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>4</length>
+      </stringQualifiers>
+    </type>
+    <mask>9999</mask>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="88f48e35-d63f-4cee-b7b6-879b37d0ec35">
+    <name>дкл_КоординатаУНижнегоКрая</name>
+    <synonym>
+      <key>ru</key>
+      <value>Координата Y нижнего края, мм</value>
+    </synonym>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <synonym>Extended</synonym>
+    </extension>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>4</length>
+      </stringQualifiers>
+    </type>
+    <mask>9999</mask>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="b8553959-e399-4312-80cd-c36d4abf4594">
+    <name>дкл_Ширина</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ширина ячейки, мм</value>
+    </synonym>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <synonym>Extended</synonym>
+    </extension>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>4</length>
+      </stringQualifiers>
+    </type>
+    <mask>9999</mask>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="9cd45ba5-0e15-42d7-ae2b-e261fd74ee1c">
+    <name>дкл_Глубина</name>
+    <synonym>
+      <key>ru</key>
+      <value>Глубина ячейки, мм</value>
+    </synonym>
+    <extension xsi:type="mdclassExtension:BasicFeatureExtension">
+      <synonym>Extended</synonym>
+    </extension>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>4</length>
+      </stringQualifiers>
+    </type>
+    <mask>9999</mask>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <forms uuid="56a8b49b-af48-4d31-a9ce-2ea6892e1c2c" extendedConfigurationObject="6f5ed534-587e-4105-b430-a1bf745cbe05">
+    <name>ФормаЭлемента</name>
+    <objectBelonging>Adopted</objectBelonging>
+    <extension xsi:type="mdclassExtension:BasicFormExtension">
+      <extendedConfigurationObject>Checked</extendedConfigurationObject>
+      <form>Extended</form>
+    </extension>
+  </forms>
+</mdclass:Catalog>

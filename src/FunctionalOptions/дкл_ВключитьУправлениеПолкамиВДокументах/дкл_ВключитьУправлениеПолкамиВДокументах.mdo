@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:FunctionalOption xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="9706445c-8b54-4734-9e2a-3923a8d0c546">
+  <name>дкл_ВключитьУправлениеПолкамиВДокументах</name>
+  <synonym>
+    <key>ru</key>
+    <value>Управление полками АСХ из документов отбора размещения товаров</value>
+  </synonym>
+  <location>Constant.дкл_ВключитьУправлениеПолкамиВДокументах</location>
+  <privilegedGetMode>true</privilegedGetMode>
+</mdclass:FunctionalOption>

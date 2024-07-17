@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:WSReference xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="8e05c388-0838-4434-a0c8-dc119af9594e">
+  <producedTypes>
+    <managerType typeId="99dfb6bf-61c0-4c08-8ec8-9a4a9da29e32" valueTypeId="1886fee3-dd12-43ff-b940-fb8594447b65"/>
+  </producedTypes>
+  <name>ExternalIntegration_16</name>
+  <synonym>
+    <key>ru</key>
+    <value>External integration 16</value>
+  </synonym>
+  <locationURL>http://37.29.67.47:9092/lift/integration/services/externalIntegration.wsdl</locationURL>
+</mdclass:WSReference>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Constant xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="1555c42f-8440-4406-bd14-56db0f9e741f">
+  <producedTypes>
+    <managerType typeId="5cc363e4-76e3-4ca3-964d-ab17a8aee7bd" valueTypeId="60c3c81d-034b-431a-b062-d6546a973007"/>
+    <valueManagerType typeId="305407b4-8382-43ca-875b-99ea148f346d" valueTypeId="395038c5-a917-42d0-8a69-9de6e792bea3"/>
+    <valueKeyType typeId="1dd3ec2a-223c-40f5-9a0e-7ddbd637dd40" valueTypeId="0be8250e-b172-4da7-94d6-97efaa2640cc"/>
+  </producedTypes>
+  <name>дкл_ТаймаутСоединения</name>
+  <synonym>
+    <key>ru</key>
+    <value>Таймаут соединения, сек</value>
+  </synonym>
+  <type>
+    <types>Number</types>
+    <numberQualifiers>
+      <precision>2</precision>
+      <nonNegative>true</nonNegative>
+    </numberQualifiers>
+  </type>
+  <useStandardCommands>true</useStandardCommands>
+  <minValue xsi:type="core:UndefinedValue"/>
+  <maxValue xsi:type="core:UndefinedValue"/>
+  <dataLockControlMode>Managed</dataLockControlMode>
+</mdclass:Constant>

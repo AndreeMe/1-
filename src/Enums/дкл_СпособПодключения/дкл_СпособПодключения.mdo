@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Enum xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="7b2a7931-689d-4c7d-a828-1761fc9806c3">
+  <producedTypes>
+    <refType typeId="4a00e6af-e8ce-44c6-b6cd-ca29d184d4b2" valueTypeId="8b105305-74af-475c-859d-709d3f65b7c1"/>
+    <listType typeId="fd731c24-67e5-41e2-a9c4-8aae261f9abf" valueTypeId="04323f34-c110-46b0-bab7-998035ce6ee4"/>
+    <managerType typeId="c0ebfe9c-228f-47ab-8086-5482823b8472" valueTypeId="fa682883-8e0c-4fbb-8a42-e47cb144b8a0"/>
+  </producedTypes>
+  <name>дкл_СпособПодключения</name>
+  <synonym>
+    <key>ru</key>
+    <value>Способ подключения</value>
+  </synonym>
+  <quickChoice>true</quickChoice>
+  <choiceMode>BothWays</choiceMode>
+  <enumValues uuid="33073bcb-f3c5-4704-8687-a8f3093f4935">
+    <name>HTTP</name>
+    <synonym>
+      <key>ru</key>
+      <value>HTTP-сервис</value>
+    </synonym>
+  </enumValues>
+  <enumValues uuid="31fb674e-63cd-4321-9dd9-6d6229485654">
+    <name>WEB</name>
+    <synonym>
+      <key>ru</key>
+      <value>WEB-сервис</value>
+    </synonym>
+  </enumValues>
+</mdclass:Enum>

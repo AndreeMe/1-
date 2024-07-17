@@ -1,0 +1,40 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.dikom.ru/erp/lift/" elementFormQualified="false" attributeFormQualified="false">
+	<valueType name="orderType" base="xs:string" variety="Atomic">
+		<enumeration>RETRIEVE</enumeration>
+		<enumeration>STORE</enumeration>
+		<enumeration>INVENTORY</enumeration>
+	</valueType>
+	<valueType name="alphanumericspecials50" base="xs:string" variety="Atomic" maxLength="50">
+		<pattern>([a-zA-ZЁёа-яА-Я 0-9_=!@#№$®™`’″«»“”√⌀øØ\^≤≥—±÷≠×·‑ΔδöȽɰɛ,;:~\.–\-\?%\*\(\)\[\]\{\}\+&amp;&gt;&lt;"'°˚\\/|⁰¹²³⁴-⁹¼-¾⅐-⅞])*</pattern>
+	</valueType>
+	<valueType name="orderStatus" base="xs:string" variety="Atomic">
+		<enumeration>PRELOADING</enumeration>
+		<enumeration>READY_TO_LOAD</enumeration>
+		<enumeration>LOADING</enumeration>
+		<enumeration>READY_TO_UNLOAD</enumeration>
+		<enumeration>UNLOADING</enumeration>
+		<enumeration>PAUSE</enumeration>
+		<enumeration>COMPLETED</enumeration>
+		<enumeration xsi:type="xs:string">UNKNOWN</enumeration>
+	</valueType>
+	<valueType name="rowStatus" base="xs:string" variety="Atomic">
+		<enumeration>NOT_STARTED</enumeration>
+		<enumeration>PARTLY_DONE</enumeration>
+		<enumeration>INSUFFICIENCY</enumeration>
+		<enumeration>NO_SPACE</enumeration>
+		<enumeration>COMPLETED</enumeration>
+	</valueType>
+	<objectType name="OrderRow" open="true" sequenced="false">
+		<property xmlns:d3p1="http://www.dikom.ru/erp/lift/" name="itemId" type="d3p1:alphanumericspecials50" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="http://www.dikom.ru/erp/lift/" name="status" type="d3p1:rowStatus" lowerBound="0" form="Attribute"/>
+		<property name="quantity" type="xs:int" lowerBound="0" form="Attribute"/>
+	</objectType>
+	<objectType name="Order" open="true" ordered="true" sequenced="false">
+		<property xmlns:d3p1="http://www.dikom.ru/erp/lift/" name="type" type="d3p1:orderType" lowerBound="0"/>
+		<property name="docNumber" type="xs:string" lowerBound="0"/>
+		<property name="docDate" type="xs:date" lowerBound="0"/>
+		<property name="execDate" type="xs:dateTime" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.dikom.ru/erp/lift/" name="status" type="d3p1:orderStatus" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.dikom.ru/erp/lift/" name="rows" type="d3p1:OrderRow" lowerBound="0" upperBound="-1"/>
+	</objectType>
+</package>

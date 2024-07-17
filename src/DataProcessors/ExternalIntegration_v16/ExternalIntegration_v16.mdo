@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="a1056dd0-8b05-48e5-bd19-006ffcaf0bf3">
+  <producedTypes>
+    <objectType typeId="cf4bd9f5-fa89-4571-a120-68c043ef06ef" valueTypeId="0668bba5-ac38-4a2c-b85a-a6f8e83020d8"/>
+    <managerType typeId="1a7e688a-7c21-4473-84a7-6350ef4ad0ff" valueTypeId="bc03cc2b-fe2a-436a-9f4a-4e356a0c3089"/>
+  </producedTypes>
+  <name>ExternalIntegration_v16</name>
+  <synonym>
+    <key>ru</key>
+    <value>ExternalIntegration v 16</value>
+  </synonym>
+</mdclass:DataProcessor>

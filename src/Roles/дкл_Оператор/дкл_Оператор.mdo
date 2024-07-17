@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Role xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="3de044ba-cb5e-4f64-9bd8-58f0365b3fc0">
+  <name>дкл_Оператор</name>
+  <synonym>
+    <key>ru</key>
+    <value>Оператор АСХ ДиКом</value>
+  </synonym>
+</mdclass:Role>
